@@ -1,0 +1,1994 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>铁粉空间 - 创作者社区,陪伴每一份真实热爱</title>
+<meta name="description" content="铁粉空间官方网站，专注创作者与粉丝真实连接的视频社区，聚合原创精品内容、创作者故事与粉丝互动，打造值得信赖的内容生态。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23ff5a4d'/%3E%3Cpath d='M22 27v10l11-5z' fill='%23fff'/%3E%3Ccircle cx='44' cy='24' r='5' fill='%23ffd166'/%3E%3C/svg%3E">
+<style>
+:root{
+  --tf-ink:#1b1d29;
+  --tf-ink-2:#3a3e52;
+  --tf-mute:#6b7089;
+  --tf-brand:#ff5a4d;
+  --tf-brand-deep:#d93f34;
+  --tf-gold:#ffc247;
+  --tf-mint:#2fc4a8;
+  --tf-bg:#f6f7fb;
+  --tf-card:#ffffff;
+  --tf-line:#e6e8f2;
+  --tf-radius:16px;
+  --tf-shadow:0 8px 26px rgba(27,29,41,.08);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  color:var(--tf-ink);
+  background:var(--tf-bg);
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+h1,h2,h3,h4{margin:0;line-height:1.35;font-weight:800}
+p{margin:0 0 1em}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+ul{margin:0;padding:0;list-style:none}
+
+/* ===== 吸顶区域：公告条 + 页头 ===== */
+.tf-topstack{
+  position:sticky;
+  top:0;
+  z-index:120;
+  box-shadow:0 2px 18px rgba(27,29,41,.07);
+}
+.tf-notice{
+  background:linear-gradient(90deg,#1b1d29 0%,#2d2f3f 55%,#43312f 100%);
+  color:#ffd9d4;
+  font-size:13px;
+  padding:8px 0;
+}
+.tf-notice .tf-wrap{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.tf-notice-chip{
+  background:var(--tf-brand);
+  color:#fff;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.06em;
+  padding:2px 9px;
+  border-radius:999px;
+  flex:none;
+}
+.tf-notice-track{flex:1;min-width:180px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.tf-notice-track strong{color:#fff}
+.tf-notice-link{
+  color:#ffd9d4;
+  border-bottom:1px dashed rgba(255,217,212,.55);
+  flex:none;
+}
+.tf-notice-link:hover{color:#fff;border-color:#fff}
+
+.tf-header{
+  background:rgba(255,255,255,.94);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--tf-line);
+}
+.tf-wrap{
+  width:min(1200px,calc(100% - 40px));
+  margin:0 auto;
+}
+.tf-nav{
+  display:flex;
+  align-items:center;
+  gap:26px;
+  min-height:66px;
+}
+.tf-logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:800;
+  font-size:19px;
+  letter-spacing:.01em;
+  flex:none;
+}
+.tf-logo-mark{
+  width:36px;height:36px;border-radius:11px;
+  background:linear-gradient(135deg,var(--tf-brand),#ff8b5e);
+  display:grid;place-items:center;
+  color:#fff;
+  box-shadow:0 6px 14px rgba(255,90,77,.35);
+}
+.tf-logo-mark svg{width:19px;height:19px}
+.tf-logo small{display:block;font-size:10px;font-weight:600;color:var(--tf-mute);letter-spacing:.18em}
+.tf-nav-links{
+  display:flex;
+  gap:22px;
+  font-size:14.5px;
+  font-weight:600;
+  color:var(--tf-ink-2);
+  flex:1;
+  flex-wrap:wrap;
+}
+.tf-nav-links a{position:relative;padding:6px 0;white-space:nowrap}
+.tf-nav-links a::after{
+  content:"";
+  position:absolute;left:0;bottom:0;height:2px;width:0;
+  background:var(--tf-brand);
+  transition:width .25s ease;
+  border-radius:2px;
+}
+.tf-nav-links a:hover{color:var(--tf-brand)}
+.tf-nav-links a:hover::after{width:100%}
+.tf-nav-tools{display:flex;align-items:center;gap:10px;flex:none}
+.tf-search{
+  display:flex;align-items:center;gap:6px;
+  background:var(--tf-bg);
+  border:1px solid var(--tf-line);
+  border-radius:999px;
+  padding:5px 6px 5px 14px;
+  transition:border-color .2s, box-shadow .2s;
+}
+.tf-search:focus-within{border-color:var(--tf-brand);box-shadow:0 0 0 3px rgba(255,90,77,.13)}
+.tf-search input{
+  border:none;background:none;outline:none;
+  font-size:13.5px;width:150px;color:var(--tf-ink);
+}
+.tf-search button{
+  width:30px;height:30px;border-radius:50%;
+  background:var(--tf-brand);color:#fff;
+  display:grid;place-items:center;
+  transition:background .2s;
+}
+.tf-search button:hover{background:var(--tf-brand-deep)}
+.tf-search svg{width:15px;height:15px}
+.tf-burger{
+  display:none;
+  width:40px;height:40px;border-radius:10px;
+  border:1px solid var(--tf-line);
+  background:#fff;
+  place-items:center;
+}
+.tf-burger span{
+  display:block;width:18px;height:2px;background:var(--tf-ink);
+  position:relative;
+}
+.tf-burger span::before,.tf-burger span::after{
+  content:"";position:absolute;left:0;width:18px;height:2px;background:var(--tf-ink);
+}
+.tf-burger span::before{top:-6px}
+.tf-burger span::after{top:6px}
+
+/* 锚点偏移 */
+.tf-section{scroll-margin-top:132px;padding:64px 0;position:relative}
+.tf-section-alt{background:#fff}
+.tf-section-head{
+  display:flex;align-items:flex-end;justify-content:space-between;
+  gap:20px;flex-wrap:wrap;margin-bottom:34px;
+}
+.tf-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12px;font-weight:800;letter-spacing:.16em;
+  color:var(--tf-brand);text-transform:uppercase;margin-bottom:10px;
+}
+.tf-eyebrow::before{content:"";width:22px;height:2px;background:var(--tf-brand);border-radius:2px}
+.tf-h2{font-size:clamp(24px,3.2vw,34px);letter-spacing:-.01em}
+.tf-sub{color:var(--tf-mute);font-size:14.5px;max-width:620px}
+
+/* ===== 首屏 ===== */
+.tf-hero{
+  padding:56px 0 64px;
+  background:
+    radial-gradient(900px 420px at 85% -10%, rgba(255,194,71,.20), transparent 60%),
+    radial-gradient(700px 400px at 5% 110%, rgba(47,196,168,.16), transparent 60%),
+    linear-gradient(180deg,#fffdfb 0%,#f6f7fb 100%);
+  overflow:hidden;
+}
+.tf-hero-grid{
+  display:grid;
+  grid-template-columns:1.08fr .92fr;
+  gap:52px;
+  align-items:center;
+}
+.tf-brand-pill{
+  display:inline-flex;align-items:center;gap:8px;
+  background:#fff;border:1px solid var(--tf-line);
+  border-radius:999px;padding:6px 14px 6px 8px;
+  font-size:12.5px;font-weight:700;color:var(--tf-ink-2);
+  box-shadow:0 4px 14px rgba(27,29,41,.05);
+}
+.tf-brand-pill i{
+  width:22px;height:22px;border-radius:50%;
+  background:linear-gradient(135deg,var(--tf-brand),var(--tf-gold));
+  display:grid;place-items:center;color:#fff;font-style:normal;font-size:11px;
+}
+.tf-hero h1{
+  font-size:clamp(38px,5.6vw,62px);
+  letter-spacing:-.02em;
+  margin:18px 0 8px;
+  line-height:1.16;
+}
+.tf-hero h1 .tf-h1-accent{
+  background:linear-gradient(120deg,var(--tf-brand),#ff8b5e 60%,var(--tf-gold));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.tf-hero-lead{
+  font-size:17px;color:var(--tf-ink-2);font-weight:700;margin-bottom:6px;
+}
+.tf-hero-intro{
+  color:var(--tf-mute);font-size:15px;max-width:540px;margin:14px 0 26px;
+}
+.tf-hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:34px}
+.tf-btn{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:12px 24px;border-radius:999px;
+  font-weight:700;font-size:14.5px;
+  transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+.tf-btn svg{width:16px;height:16px}
+.tf-btn-primary{
+  background:linear-gradient(135deg,var(--tf-brand),#ff8b5e);
+  color:#fff;box-shadow:0 10px 22px rgba(255,90,77,.33);
+}
+.tf-btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 28px rgba(255,90,77,.42)}
+.tf-btn-ghost{
+  background:#fff;color:var(--tf-ink);border:1px solid var(--tf-line);
+}
+.tf-btn-ghost:hover{border-color:var(--tf-brand);color:var(--tf-brand);transform:translateY(-2px)}
+.tf-stats{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:14px;max-width:520px;
+}
+.tf-stat{
+  background:#fff;border:1px solid var(--tf-line);border-radius:14px;
+  padding:14px 16px;
+}
+.tf-stat b{display:block;font-size:24px;letter-spacing:-.02em;color:var(--tf-ink)}
+.tf-stat b em{font-style:normal;color:var(--tf-brand);font-size:15px;margin-left:2px}
+.tf-stat span{font-size:12.5px;color:var(--tf-mute)}
+
+.tf-hero-visual{position:relative}
+.tf-hero-frame{
+  position:relative;border-radius:24px;overflow:hidden;
+  box-shadow:0 26px 60px rgba(27,29,41,.18);
+  aspect-ratio:4/3.4;
+  background:#22243a;
+}
+.tf-hero-frame img{width:100%;height:100%;object-fit:cover}
+.tf-hero-play{
+  position:absolute;inset:0;display:grid;place-items:center;
+  background:linear-gradient(180deg,rgba(20,21,34,.05),rgba(20,21,34,.55));
+}
+.tf-hero-play button{
+  width:76px;height:76px;border-radius:50%;
+  background:rgba(255,255,255,.94);
+  display:grid;place-items:center;
+  box-shadow:0 12px 30px rgba(0,0,0,.3);
+  transition:transform .25s ease;
+}
+.tf-hero-play button:hover{transform:scale(1.08)}
+.tf-hero-play svg{width:26px;height:26px;margin-left:4px;color:var(--tf-brand)}
+.tf-hero-caption{
+  position:absolute;left:16px;bottom:16px;right:16px;
+  color:#fff;font-size:13.5px;font-weight:600;
+  display:flex;align-items:center;gap:8px;
+}
+.tf-hero-caption i{
+  width:8px;height:8px;border-radius:50%;background:#ff5a4d;
+  box-shadow:0 0 0 4px rgba(255,90,77,.35);
+  animation:tf-pulse 1.8s infinite;flex:none;
+}
+@keyframes tf-pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.tf-hero-badge{
+  position:absolute;right:-12px;top:-12px;
+  background:#fff;border-radius:14px;padding:10px 14px;
+  box-shadow:var(--tf-shadow);font-size:12px;font-weight:700;
+  display:flex;align-items:center;gap:8px;color:var(--tf-ink-2);
+}
+.tf-hero-badge b{color:var(--tf-brand);font-size:16px}
+.tf-hero-float{
+  position:absolute;left:-18px;bottom:34px;
+  background:#fff;border-radius:14px;padding:10px 14px;
+  box-shadow:var(--tf-shadow);font-size:12px;font-weight:700;color:var(--tf-ink-2);
+  display:flex;align-items:center;gap:8px;
+}
+.tf-hero-float i{
+  width:26px;height:26px;border-radius:50%;
+  background:linear-gradient(135deg,var(--tf-mint),#57e0c8);
+  display:grid;place-items:center;color:#fff;font-style:normal;font-size:12px;font-weight:800;
+}
+
+/* ===== 深度解析长文 ===== */
+.tf-about-grid{
+  display:grid;grid-template-columns:.9fr 1.1fr;gap:46px;align-items:start;
+}
+.tf-about-card{
+  background:linear-gradient(160deg,#1b1d29,#2c2f45);
+  color:#e8e9f2;border-radius:20px;padding:30px;
+  position:sticky;top:150px;
+}
+.tf-about-card h3{color:#fff;font-size:21px;margin-bottom:14px}
+.tf-about-card p{font-size:13.8px;color:#b9bcd3;line-height:1.85}
+.tf-about-highlight{
+  margin-top:18px;padding-top:18px;border-top:1px solid rgba(255,255,255,.12);
+  display:grid;gap:12px;
+}
+.tf-about-highlight div{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:#d6d8e8}
+.tf-about-highlight div b{color:var(--tf-gold);flex:none}
+.tf-about-text h3{font-size:20px;margin:26px 0 10px;color:var(--tf-ink)}
+.tf-about-text h3:first-child{margin-top:0}
+.tf-about-text p{font-size:14.5px;color:var(--tf-ink-2);line-height:1.95;text-align:justify}
+.tf-about-text strong{color:var(--tf-brand-deep)}
+.tf-keyword-tag{
+  display:inline-block;background:rgba(255,90,77,.1);
+  color:var(--tf-brand-deep);border-radius:6px;
+  padding:1px 6px;font-weight:700;font-size:.94em;
+}
+
+/* ===== 焦点内容 ===== */
+.tf-focus-grid{
+  display:grid;grid-template-columns:1.25fr .75fr;gap:24px;
+}
+.tf-focus-main{
+  position:relative;border-radius:20px;overflow:hidden;
+  background:#1b1d29;aspect-ratio:16/9.4;
+  box-shadow:var(--tf-shadow);
+}
+.tf-focus-main img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.tf-focus-main:hover img{transform:scale(1.04)}
+.tf-focus-main .tf-cover-mask{
+  position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(10,11,20,.05) 30%,rgba(10,11,20,.86));
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:26px;color:#fff;
+}
+.tf-cover-tag{
+  align-self:flex-start;background:var(--tf-brand);color:#fff;
+  font-size:11px;font-weight:800;padding:3px 10px;border-radius:6px;
+  letter-spacing:.05em;margin-bottom:12px;
+}
+.tf-focus-main h3{font-size:22px;color:#fff;margin-bottom:8px}
+.tf-focus-main p{font-size:13.5px;color:#c9ccde;margin:0 0 14px}
+.tf-focus-meta{display:flex;gap:16px;font-size:12.5px;color:#a9adc6;flex-wrap:wrap;align-items:center}
+.tf-mini-list{display:grid;gap:16px}
+.tf-mini{
+  display:grid;grid-template-columns:132px 1fr;gap:14px;
+  background:#fff;border:1px solid var(--tf-line);border-radius:16px;
+  padding:12px;transition:transform .22s ease, box-shadow .22s ease, border-color .22s;
+  align-items:center;
+}
+.tf-mini:hover{transform:translateY(-3px);box-shadow:var(--tf-shadow);border-color:rgba(255,90,77,.4)}
+.tf-mini-thumb{
+  border-radius:11px;overflow:hidden;aspect-ratio:16/10.5;position:relative;background:#2a2d44;
+}
+.tf-mini-thumb img{width:100%;height:100%;object-fit:cover}
+.tf-mini-thumb .tf-play-dot{
+  position:absolute;right:6px;bottom:6px;width:22px;height:22px;border-radius:50%;
+  background:rgba(255,255,255,.92);display:grid;place-items:center;
+}
+.tf-play-dot svg{width:9px;height:9px;margin-left:1px;color:var(--tf-brand)}
+.tf-mini h4{font-size:14px;line-height:1.5;margin-bottom:6px}
+.tf-mini span{font-size:12px;color:var(--tf-mute)}
+
+/* ===== 视频流卡片 ===== */
+.tf-filter-row{
+  display:flex;gap:10px;flex-wrap:wrap;margin-bottom:26px;
+}
+.tf-filter{
+  padding:7px 16px;border-radius:999px;background:#fff;
+  border:1px solid var(--tf-line);font-size:13px;font-weight:600;color:var(--tf-ink-2);
+  transition:all .2s;
+}
+.tf-filter:hover{border-color:var(--tf-brand);color:var(--tf-brand)}
+.tf-filter.is-active{background:var(--tf-ink);color:#fff;border-color:var(--tf-ink)}
+.tf-video-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
+}
+.tf-video-card{
+  background:#fff;border:1px solid var(--tf-line);border-radius:18px;
+  overflow:hidden;display:flex;flex-direction:column;
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+.tf-video-card:hover{transform:translateY(-5px);box-shadow:0 18px 36px rgba(27,29,41,.12)}
+.tf-video-cover{
+  position:relative;aspect-ratio:16/9;background:#22243a;overflow:hidden;
+}
+.tf-video-cover img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.tf-video-card:hover .tf-video-cover img{transform:scale(1.05)}
+.tf-cover-mask2{
+  position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 40%,rgba(10,11,20,.7));
+}
+.tf-cover-label{
+  position:absolute;top:10px;left:10px;
+  background:rgba(27,29,41,.82);color:#fff;font-size:11px;font-weight:700;
+  padding:3px 9px;border-radius:6px;letter-spacing:.04em;
+  backdrop-filter:blur(4px);
+}
+.tf-cover-duration{
+  position:absolute;right:10px;bottom:10px;
+  background:rgba(10,11,20,.78);color:#fff;font-size:11px;font-weight:700;padding:2px 7px;border-radius:5px;
+}
+.tf-video-body{padding:16px;display:flex;flex-direction:column;gap:10px;flex:1}
+.tf-video-body h3{font-size:15.5px;line-height:1.5}
+.tf-video-body p{font-size:12.8px;color:var(--tf-mute);margin:0;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.tf-chip-row{display:flex;gap:6px;flex-wrap:wrap}
+.tf-chip{
+  font-size:11px;color:var(--tf-brand-deep);background:rgba(255,90,77,.1);
+  border-radius:5px;padding:2px 7px;font-weight:700;
+}
+.tf-video-author{
+  display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--tf-ink-2);font-weight:600;
+}
+.tf-avatar{
+  width:26px;height:26px;border-radius:50%;display:grid;place-items:center;
+  color:#fff;font-size:11.5px;font-weight:800;flex:none;
+}
+.tf-video-foot{
+  display:flex;align-items:center;justify-content:space-between;gap:8px;
+  padding:10px 16px 14px;border-top:1px dashed var(--tf-line);margin-top:auto;
+}
+.tf-video-stats{display:flex;gap:12px;font-size:12px;color:var(--tf-mute)}
+.tf-act{
+  display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:700;
+  color:var(--tf-mute);padding:4px 8px;border-radius:7px;transition:all .18s;
+}
+.tf-act svg{width:14px;height:14px}
+.tf-act:hover{background:var(--tf-bg);color:var(--tf-brand)}
+.tf-act.is-liked{color:var(--tf-brand)}
+.tf-act.is-saved{color:var(--tf-gold)}
+.tf-act.is-saved svg{fill:currentColor}
+
+/* ===== 专题 ===== */
+.tf-topic-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:20px;
+}
+.tf-topic{
+  position:relative;border-radius:16px;overflow:hidden;aspect-ratio:3/4;
+  background:#22243a;box-shadow:var(--tf-shadow);
+}
+.tf-topic img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.tf-topic:hover img{transform:scale(1.06)}
+.tf-topic-mask{
+  position:absolute;inset:0;padding:20px;display:flex;flex-direction:column;justify-content:flex-end;
+  background:linear-gradient(180deg,rgba(10,11,20,0) 35%,rgba(10,11,20,.9));
+  color:#fff;
+}
+.tf-topic-status{
+  align-self:flex-start;font-size:10.5px;font-weight:800;letter-spacing:.05em;
+  background:rgba(255,194,71,.92);color:#3a2a00;padding:2px 8px;border-radius:5px;margin-bottom:8px;
+}
+.tf-topic-status.is-live{background:rgba(47,196,168,.95);color:#013a30}
+.tf-topic h3{font-size:16px;color:#fff;margin-bottom:4px}
+.tf-topic p{font-size:12px;color:#c3c6da;margin:0}
+
+/* ===== 创作者 ===== */
+.tf-creator-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:22px;
+}
+.tf-creator{
+  background:#fff;border:1px solid var(--tf-line);border-radius:18px;
+  padding:24px 20px;text-align:center;
+  transition:transform .25s ease, box-shadow .25s ease, border-color .25s;
+  display:flex;flex-direction:column;align-items:center;
+}
+.tf-creator:hover{transform:translateY(-4px);box-shadow:var(--tf-shadow);border-color:rgba(255,90,77,.35)}
+.tf-creator-avatar{
+  width:64px;height:64px;border-radius:50%;display:grid;place-items:center;
+  color:#fff;font-weight:800;font-size:22px;margin-bottom:14px;
+  box-shadow:0 8px 18px rgba(27,29,41,.16);
+}
+.tf-creator h3{font-size:16px;margin-bottom:4px}
+.tf-creator .tf-c-domain{font-size:12px;color:var(--tf-brand-deep);font-weight:700;margin-bottom:10px}
+.tf-creator p{font-size:12.5px;color:var(--tf-mute);margin:0 0 14px;line-height:1.7}
+.tf-creator-data{
+  display:grid;grid-template-columns:1fr 1fr;gap:8px;width:100%;
+  border-top:1px dashed var(--tf-line);padding-top:12px;margin-top:auto;
+}
+.tf-creator-data b{display:block;font-size:15px;color:var(--tf-ink)}
+.tf-creator-data span{font-size:11px;color:var(--tf-mute)}
+.tf-creator-more{
+  margin-top:14px;font-size:12px;font-weight:700;color:var(--tf-brand);
+  background:rgba(255,90,77,.08);border-radius:8px;padding:6px 0;width:100%;
+}
+.tf-creator-more:hover{background:rgba(255,90,77,.16)}
+
+/* ===== 作品墙 ===== */
+.tf-wall{
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  grid-auto-rows:118px;
+  gap:14px;
+}
+.tf-wall-item{
+  position:relative;border-radius:14px;overflow:hidden;background:#22243a;
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+.tf-wall-item:hover{transform:translateY(-3px);box-shadow:var(--tf-shadow)}
+.tf-wall-item img{width:100%;height:100%;object-fit:cover}
+.tf-wall-item span{
+  position:absolute;left:0;right:0;bottom:0;padding:8px 10px;
+  background:linear-gradient(180deg,transparent,rgba(10,11,20,.85));
+  color:#fff;font-size:11.5px;font-weight:700;
+}
+.tf-wall-w2{grid-column:span 2;grid-row:span 2}
+.tf-wall-w3{grid-column:span 3;grid-row:span 2}
+.tf-wall-h2{grid-column:span 2;grid-row:span 1}
+
+/* ===== 故事随笔 ===== */
+.tf-story-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.tf-story{
+  background:#fff;border:1px solid var(--tf-line);border-radius:18px;padding:26px;
+  display:flex;flex-direction:column;gap:12px;
+  transition:transform .25s ease, box-shadow .25s;
+}
+.tf-story:hover{transform:translateY(-4px);box-shadow:var(--tf-shadow)}
+.tf-story-quote{font-size:26px;color:var(--tf-gold);line-height:1;font-weight:800}
+.tf-story h3{font-size:16.5px}
+.tf-story p{font-size:13.5px;color:var(--tf-ink-2);margin:0;line-height:1.85}
+.tf-story-by{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--tf-mute);margin-top:auto;padding-top:10px}
+
+/* ===== 评论 ===== */
+.tf-review-row{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:18px;
+}
+.tf-review{
+  background:#fff;border:1px solid var(--tf-line);border-radius:16px;padding:20px;
+  display:flex;flex-direction:column;gap:10px;
+}
+.tf-review-head{display:flex;align-items:center;gap:10px}
+.tf-review-name{font-size:13.5px;font-weight:700}
+.tf-review-time{font-size:11.5px;color:var(--tf-mute)}
+.tf-review-text{font-size:13px;color:var(--tf-ink-2);margin:0;line-height:1.8}
+.tf-stars{color:var(--tf-gold);font-size:12.5px;letter-spacing:2px}
+
+/* ===== 灵感 + 榜单 ===== */
+.tf-split-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:28px;align-items:start}
+.tf-inspire{
+  background:linear-gradient(150deg,#fff6f4,#fffdf6 70%);
+  border:1px solid #ffe1db;border-radius:20px;padding:28px;
+}
+.tf-inspire-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
+.tf-inspire-item{
+  background:#fff;border:1px solid var(--tf-line);border-radius:12px;padding:14px;
+  font-size:13px;color:var(--tf-ink-2);line-height:1.7;
+}
+.tf-inspire-item b{display:block;color:var(--tf-brand-deep);font-size:12px;letter-spacing:.04em;margin-bottom:4px}
+.tf-inspire-item button{
+  font-size:11.5px;font-weight:700;color:var(--tf-brand);margin-top:6px;
+  border-bottom:1px dashed rgba(255,90,77,.5);
+}
+.tf-rank{
+  background:#fff;border:1px solid var(--tf-line);border-radius:20px;padding:24px;
+}
+.tf-rank ol{display:grid;gap:2px}
+.tf-rank li{
+  display:flex;align-items:center;gap:12px;font-size:13.5px;
+  padding:11px 0;border-bottom:1px dashed var(--tf-line);
+}
+.tf-rank li:last-child{border-bottom:none}
+.tf-rank-no{
+  width:24px;height:24px;border-radius:7px;background:var(--tf-bg);
+  display:grid;place-items:center;font-size:12px;font-weight:800;color:var(--tf-mute);flex:none;
+}
+.tf-rank li:nth-child(1) .tf-rank-no{background:var(--tf-brand);color:#fff}
+.tf-rank li:nth-child(2) .tf-rank-no{background:var(--tf-gold);color:#4a3300}
+.tf-rank li:nth-child(3) .tf-rank-no{background:#ffd9d4;color:var(--tf-brand-deep)}
+.tf-rank-title{flex:1;font-weight:600}
+.tf-rank-hot{font-size:11.5px;color:var(--tf-mute);flex:none}
+
+/* ===== 动态 & 合作 ===== */
+.tf-updates{display:grid;gap:14px;max-width:820px}
+.tf-update{
+  display:flex;gap:16px;align-items:flex-start;
+  background:#fff;border:1px solid var(--tf-line);border-radius:14px;padding:16px 18px;
+}
+.tf-update-date{
+  flex:none;font-size:12px;font-weight:800;color:var(--tf-brand-deep);
+  background:rgba(255,90,77,.1);border-radius:8px;padding:6px 10px;text-align:center;line-height:1.4;
+}
+.tf-update-body b{display:block;font-size:14px;margin-bottom:3px}
+.tf-update-body span{font-size:12.8px;color:var(--tf-mute)}
+.tf-partners{
+  display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-top:28px;
+}
+.tf-partner{
+  border:1px solid var(--tf-line);border-radius:12px;background:#fff;
+  height:66px;display:grid;place-items:center;
+  font-size:13px;font-weight:800;color:var(--tf-ink-2);letter-spacing:.03em;
+  transition:all .2s;
+}
+.tf-partner:hover{border-color:var(--tf-brand);color:var(--tf-brand);transform:translateY(-2px)}
+
+/* ===== FAQ ===== */
+.tf-faq{max-width:860px;margin:0 auto}
+.tf-faq details{
+  background:#fff;border:1px solid var(--tf-line);border-radius:13px;
+  padding:0 18px;margin-bottom:12px;transition:border-color .2s;
+}
+.tf-faq details[open]{border-color:rgba(255,90,77,.45);box-shadow:0 6px 18px rgba(27,29,41,.05)}
+.tf-faq summary{
+  list-style:none;cursor:pointer;font-weight:700;font-size:14.5px;
+  padding:16px 0;display:flex;justify-content:space-between;align-items:center;gap:14px;
+}
+.tf-faq summary::-webkit-details-marker{display:none}
+.tf-faq summary::after{
+  content:"+";font-size:20px;color:var(--tf-brand);font-weight:400;line-height:1;transition:transform .2s;
+}
+.tf-faq details[open] summary::after{transform:rotate(45deg)}
+.tf-faq details p{font-size:13.5px;color:var(--tf-mute);margin:0;padding:0 0 16px;line-height:1.85}
+
+/* ===== 联系 ===== */
+.tf-contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:stretch}
+.tf-contact-card{
+  background:linear-gradient(150deg,#1b1d29,#333650);
+  color:#e8e9f2;border-radius:20px;padding:34px;
+}
+.tf-contact-card h3{color:#fff;font-size:22px;margin-bottom:10px}
+.tf-contact-card p{color:#b9bcd3;font-size:13.8px}
+.tf-contact-list{display:grid;gap:14px;margin-top:20px}
+.tf-contact-list div{display:flex;gap:10px;align-items:center;font-size:13.5px;color:#d6d8e8}
+.tf-contact-list i{
+  width:30px;height:30px;border-radius:9px;background:rgba(255,255,255,.09);
+  display:grid;place-items:center;font-style:normal;flex:none;color:var(--tf-gold);
+}
+.tf-contact-form{
+  background:#fff;border:1px solid var(--tf-line);border-radius:20px;padding:30px;
+  display:flex;flex-direction:column;gap:14px;
+}
+.tf-contact-form h3{font-size:18px;margin-bottom:2px}
+.tf-contact-form p{font-size:13px;color:var(--tf-mute);margin-bottom:4px}
+.tf-field{display:flex;flex-direction:column;gap:6px}
+.tf-field label{font-size:12.5px;font-weight:700;color:var(--tf-ink-2)}
+.tf-field input,.tf-field textarea{
+  border:1px solid var(--tf-line);border-radius:10px;padding:10px 13px;
+  font-size:13.5px;font-family:inherit;outline:none;background:var(--tf-bg);
+  transition:border-color .2s, box-shadow .2s;resize:vertical;
+}
+.tf-field input:focus,.tf-field textarea:focus{
+  border-color:var(--tf-brand);box-shadow:0 0 0 3px rgba(255,90,77,.12);background:#fff;
+}
+.tf-form-tip{font-size:12px;color:var(--tf-mint);font-weight:700;min-height:18px}
+
+/* ===== 页脚 ===== */
+.tf-footer{
+  background:#15161f;color:#a9adc6;padding:50px 0 26px;font-size:13px;
+}
+.tf-footer-grid{
+  display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:32px;
+  padding-bottom:30px;border-bottom:1px solid rgba(255,255,255,.08);
+}
+.tf-footer .tf-logo{color:#fff;margin-bottom:14px}
+.tf-footer p{color:#8f93ad;line-height:1.9;margin:0 0 12px;font-size:12.8px}
+.tf-footer h4{color:#fff;font-size:14px;margin-bottom:14px}
+.tf-footer li{margin-bottom:9px;font-size:12.8px}
+.tf-footer li a:hover{color:var(--tf-brand)}
+.tf-footer-bottom{
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+  padding-top:22px;font-size:12px;color:#7b7f99;
+}
+
+/* ===== 弹窗 & Toast ===== */
+.tf-modal-backdrop{
+  position:fixed;inset:0;background:rgba(15,16,26,.55);
+  display:none;place-items:center;z-index:300;padding:20px;
+  backdrop-filter:blur(3px);
+}
+.tf-modal-backdrop.is-open{display:grid}
+.tf-modal{
+  background:#fff;border-radius:20px;width:min(480px,100%);
+  padding:28px;box-shadow:0 30px 70px rgba(0,0,0,.3);
+  position:relative;max-height:86vh;overflow:auto;
+}
+.tf-modal h3{font-size:19px;margin-bottom:6px}
+.tf-modal-sub{font-size:13px;color:var(--tf-mute);margin-bottom:16px}
+.tf-modal-close{
+  position:absolute;right:14px;top:14px;width:32px;height:32px;border-radius:50%;
+  background:var(--tf-bg);display:grid;place-items:center;font-size:17px;color:var(--tf-mute);
+}
+.tf-modal-close:hover{background:#ffe1db;color:var(--tf-brand)}
+.tf-toast{
+  position:fixed;left:50%;bottom:36px;transform:translate(-50%,20px);
+  background:var(--tf-ink);color:#fff;font-size:13px;font-weight:600;
+  padding:11px 22px;border-radius:999px;z-index:400;
+  opacity:0;pointer-events:none;transition:all .3s ease;
+  box-shadow:0 12px 30px rgba(0,0,0,.25);
+}
+.tf-toast.is-show{opacity:1;transform:translate(-50%,0)}
+.tf-backtop{
+  position:fixed;right:24px;bottom:26px;width:46px;height:46px;border-radius:50%;
+  background:#fff;border:1px solid var(--tf-line);
+  display:grid;place-items:center;z-index:200;
+  box-shadow:var(--tf-shadow);color:var(--tf-ink);
+  opacity:0;pointer-events:none;transition:all .3s ease;
+}
+.tf-backtop.is-show{opacity:1;pointer-events:auto}
+.tf-backtop:hover{background:var(--tf-brand);color:#fff;border-color:var(--tf-brand)}
+.tf-backtop svg{width:18px;height:18px}
+.tf-search-status{
+  font-size:13px;color:var(--tf-mute);margin-top:10px;min-height:20px;
+}
+.tf-search-status b{color:var(--tf-brand)}
+
+/* ===== 响应式 ===== */
+@media (max-width:1080px){
+  .tf-hero-grid{grid-template-columns:1fr;gap:38px}
+  .tf-hero-visual{max-width:560px}
+  .tf-about-grid{grid-template-columns:1fr;gap:30px}
+  .tf-about-card{position:static}
+  .tf-focus-grid{grid-template-columns:1fr}
+  .tf-video-grid{grid-template-columns:repeat(2,1fr)}
+  .tf-topic-grid{grid-template-columns:repeat(2,1fr)}
+  .tf-creator-grid{grid-template-columns:repeat(2,1fr)}
+  .tf-review-row{grid-template-columns:1fr 1fr}
+  .tf-split-grid{grid-template-columns:1fr}
+  .tf-contact-grid{grid-template-columns:1fr}
+  .tf-footer-grid{grid-template-columns:1fr 1fr}
+  .tf-partners{grid-template-columns:repeat(3,1fr)}
+  .tf-story-grid{grid-template-columns:1fr}
+}
+@media (max-width:860px){
+  .tf-nav-links{
+    display:none;position:absolute;left:0;right:0;top:100%;
+    background:#fff;border-bottom:1px solid var(--tf-line);
+    padding:16px 20px 20px;box-shadow:0 16px 26px rgba(27,29,41,.1);
+    flex-direction:column;gap:4px;font-size:14px;
+  }
+  .tf-nav-links.is-open{display:flex}
+  .tf-nav-links a{padding:10px 0;border-bottom:1px dashed var(--tf-line)}
+  .tf-header .tf-nav{position:relative}
+  .tf-burger{display:grid}
+  .tf-search input{width:110px}
+  .tf-wall{grid-template-columns:repeat(2,1fr);grid-auto-rows:130px}
+  .tf-wall-w2,.tf-wall-w3,.tf-wall-h2{grid-column:span 1;grid-row:span 1}
+  .tf-wall-w2:first-child{grid-column:span 2}
+  .tf-inspire-grid{grid-template-columns:1fr}
+  .tf-review-row{grid-template-columns:1fr}
+  .tf-notice-link{display:none}
+}
+@media (max-width:560px){
+  .tf-wrap{width:calc(100% - 28px)}
+  .tf-section{padding:46px 0;scroll-margin-top:120px}
+  .tf-stats{grid-template-columns:1fr 1fr}
+  .tf-video-grid{grid-template-columns:1fr}
+  .tf-creator-grid{grid-template-columns:1fr}
+  .tf-topic-grid{grid-template-columns:1fr 1fr}
+  .tf-partners{grid-template-columns:repeat(2,1fr)}
+  .tf-footer-grid{grid-template-columns:1fr}
+  .tf-search input{width:84px}
+  .tf-hero h1{font-size:34px}
+  .tf-badge,.tf-hero-badge,.tf-hero-float{display:none}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<!-- 吸顶：公告条 + 页头 -->
+<div class="tf-topstack">
+  <div class="tf-notice">
+    <div class="tf-wrap">
+      <span class="tf-notice-chip">官方发布</span>
+      <div class="tf-notice-track">
+        <strong>11 月内容季</strong>新增「陪伴计划」专题 12 组纪实影像上线，创作者联合企划《我和我的铁粉》开放报名中 ·
+        作品墙本周更新 46 组原创作品，投稿通道持续开放
+      </div>
+      <a class="tf-notice-link" href="#tf-topic">查看专题 →</a>
+    </div>
+  </div>
+  <header class="tf-header">
+    <div class="tf-wrap">
+      <nav class="tf-nav" aria-label="主导航">
+        <a class="tf-logo" href="#tf-home">
+          <span class="tf-logo-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </span>
+          <span>铁粉空间<small>TIE FEN SPACE</small></span>
+        </a>
+        <div class="tf-nav-links" id="tfNavLinks">
+          <a href="#tf-home">首页</a>
+          <a href="#tf-focus">视频焦点</a>
+          <a href="#tf-topic">专题企划</a>
+          <a href="#tf-creator">创作者</a>
+          <a href="#tf-wall">作品墙</a>
+          <a href="#tf-updates">企业动态</a>
+          <a href="#tf-faq">帮助</a>
+          <a href="#tf-contact">联系</a>
+        </div>
+        <div class="tf-nav-tools">
+          <div class="tf-search">
+            <input type="search" id="tfSearchInput" placeholder="搜索内容 / 创作者" aria-label="站内搜索">
+            <button type="button" id="tfSearchBtn" aria-label="开始搜索">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.4-3.4"/></svg>
+            </button>
+          </div>
+          <button class="tf-burger" id="tfBurger" type="button" aria-label="展开导航" aria-expanded="false">
+            <span></span>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+</div>
+
+<main>
+  <!-- 首屏 -->
+  <section class="tf-hero" id="tf-home">
+    <div class="tf-wrap">
+      <div class="tf-hero-grid">
+        <div>
+          <span class="tf-brand-pill"><i>F</i>铁粉空间 · 官方网站 · 品牌自营内容社区</span>
+          <h1>铁粉空间<span class="tf-h1-accent">免费会员</span></h1>
+          <p class="tf-hero-lead">让每一份真实的热爱，都被看见、被回应、被陪伴。</p>
+          <p class="tf-hero-intro">
+            铁粉空间是企业自主运营的视频内容平台，深耕创作者与粉丝之间的真实连接。我们以原创、正版、高清的精品内容为核心，
+            汇聚生活记录、经验分享、人物访谈与行业观察等多元题材，为创作者提供稳定的成长土壤，为每一位用户提供值得信赖的内容体验。
+            我们相信：真正的影响力，来自长期陪伴。
+          </p>
+          <div class="tf-hero-actions">
+            <a class="tf-btn tf-btn-primary" href="#tf-video">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              浏览精品内容
+            </a>
+            <button class="tf-btn tf-btn-ghost" type="button" id="tfJoinBtn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+              申请会员体验
+            </button>
+          </div>
+          <div class="tf-stats">
+            <div class="tf-stat"><b>18.6<em>万</em></b><span>注册创作者</span></div>
+            <div class="tf-stat"><b>2,400<em>+</em></b><span>原创视频内容</span></div>
+            <div class="tf-stat"><b>96.2<em>%</em></b><span>会员续留口碑</span></div>
+          </div>
+        </div>
+
+        <div class="tf-hero-visual">
+          <div class="tf-hero-badge"><b>今日</b>更新 12 条</div>
+          <div class="tf-hero-frame">
+            <img alt="铁粉空间创作者在暖光工作室中录制人物访谈视频" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 720 620'%3E%3Cdefs%3E%3ClinearGradient id='g1' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23222a4a'/%3E%3Cstop offset='.55' stop-color='%233d2f45'/%3E%3Cstop offset='1' stop-color='%23a34a3a'/%3E%3C/linearGradient%3E%3CradialGradient id='g2' cx='.72' cy='.24' r='.6'%3E%3Cstop offset='0' stop-color='%23ffc247' stop-opacity='.85'/%3E%3Cstop offset='1' stop-color='%23ffc247' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect width='720' height='620' fill='url(%23g1)'/%3E%3Crect width='720' height='620' fill='url(%23g2)'/%3E%3Ccircle cx='200' cy='210' r='120' fill='%23ff5a4d' opacity='.22'/%3E%3Ccircle cx='540' cy='430' r='150' fill='%232fc4a8' opacity='.16'/%3E%3Crect x='120' y='330' width='480' height='210' rx='14' fill='%23171a2c' opacity='.88'/%3E%3Crect x='150' y='360' width='420' height='14' rx='7' fill='%23ff5a4d' opacity='.7'/%3E%3Crect x='150' y='392' width='300' height='10' rx='5' fill='%23ffffff' opacity='.28'/%3E%3Crect x='150' y='418' width='360' height='10' rx='5' fill='%23ffffff' opacity='.18'/%3E%3Ccircle cx='250' cy='250' r='58' fill='%23e8b98a'/%3E%3Cpath d='M192 250a58 58 0 0 1 116 0v6H192z' fill='%23c9532f'/%3E%3Crect x='196' y='296' width='108' height='70' rx='26' fill='%23ff7a5c'/%3E%3Ccircle cx='480' cy='300' r='46' fill='%23f0c9a3'/%3E%3Crect x='430' y='340' width='100' height='64' rx='24' fill='%232fc4a8'/%3E%3Cpath d='M330 470h80l-12 60h-56z' fill='%23ffc247' opacity='.7'/%3E%3C/svg%3E">
+            <div class="tf-hero-play">
+              <button type="button" aria-label="播放品牌宣传片" data-tf-play="品牌宣传片《我们如何陪伴》">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              </button>
+            </div>
+            <div class="tf-hero-caption"><i></i>品牌纪录片《我们如何陪伴》· 第 3 集已上线</div>
+          </div>
+          <div class="tf-hero-float"><i>✓</i>官方认证创作者 · 内容持续运营</div>
+        </div>
+      </div>
+      <div class="tf-search-status" id="tfSearchStatus" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <!-- 关键词深度解析 -->
+  <section class="tf-section tf-section-alt" id="tf-about">
+    <div class="tf-wrap">
+      <div class="tf-section-head">
+        <div>
+          <span class="tf-eyebrow">品牌深度解析</span>
+          <h2 class="tf-h2">关于「铁粉空间免费会员」，我们想认真说明白</h2>
+          <p class="tf-sub">一个视频品牌官网，为什么要花大力气讲清楚会员这件事？因为它关乎信任，也关乎我们与用户之间的长期关系。</p>
+        </div>
+      </div>
+
+      <div class="tf-about-grid">
+        <aside class="tf-about-card">
+          <h3>我们的坚持</h3>
+          <p>铁粉空间作为持续运营的企业级内容平台，坚持原创优先、正版授权、拒绝标题诱导，把精力放在内容品质与社区氛围上。</p>
+          <div class="tf-about-highlight">
+            <div><b>01</b><span>所有会员权益、开放范围与规则，均在官方网站公开说明，信息对称。</span></div>
+            <div><b>02</b><span>内容生态由创作者、运营团队与用户共建，多元包容，尊重差异。</span></div>
+            <div><b>03</b><span>以口碑而非流量为衡量标准，深耕垂直领域，做长期主义的事。</span></div>
+          </div>
+        </aside>
+
+        <div class="tf-about-text">
+          <h3>「铁粉空间免费会员」到底是什么</h3>
+          <p>
+            在铁粉空间的语境里，<span class="tf-keyword-tag">铁粉空间免费会员</span>并不是一个营销噱头式的名词，而是一套面向真实内容爱好者的会员体验体系。
+            它指代的是平台为回馈长期关注原创内容的用户所设立的体验机制：在符合官方规则、公开条件与正常使用范围的前提下，
+            用户可以获得相应阶段的会员内容体验权益，包括部分付费专题的试看、创作者完整档案的查阅、作品墙高清预览，
+            以及会员专场的线上活动参与资格。所有规则、条件与边界，都以本站官方公告与会员中心页面展示的信息为准，
+            不存在任何绕开官方渠道的获取方式，也不会在任何非官方网站以所谓捷径形式出现。
+          </p>
+          <h3>为什么品牌官网要认真讲这件事</h3>
+          <p>
+            视频内容品牌的公信力，往往建立在对细节的诚实上。一个会员相关词汇被广泛讨论的时候，最容易出现的是信息失真与体验落差。
+            作为官方网站，我们的责任是把话说在前面：<strong>会员体验由平台统一组织、统一说明、统一公示</strong>，
+            每一次调整都会通过「企业动态」与官方公告同步给所有用户，让创作者安心创作，让用户放心浏览。
+            这也是铁粉空间能够在行业内保持稳定口碑的原因——我们把用户至上当作具体的流程，而不是墙上的标语。
+          </p>
+          <p>
+            从内容生态的角度看，会员机制的意义在于让优质原创被更好地支持。平台把一部分会员体验内容与创作者激励绑定，
+            当用户愿意花时间完整观看一部纪实影像、一篇人物访谈、一组生活记录时，创作者获得的不仅是数据，
+            更是被认真对待的感受。铁粉空间深耕的正是这种「被认真对待」的关系：不追求短期爆发，
+            而是通过持续运营、稳定更新、真实反馈，让每一次内容发布都有回声。
+          </p>
+          <h3>我们如何定义「真实的热爱」</h3>
+          <p>
+            铁粉空间的内容调性偏向记录与对话。我们偏爱那些不急着下结论的影像：一段城市清晨的通勤，一位手作人的第 400 次试错，
+            一个家庭在餐桌旁的三分钟沉默，一位年轻创作者讲述自己如何从零开始学习剪辑。这些内容没有强烈的刺激点，
+            却在时间的积累中形成了力量。我们相信，<span class="tf-keyword-tag">铁粉空间免费会员</span>
+            所代表的理念同样是「陪伴式」的：不是一次性解锁多少资源，而是在一段较长的时间里，
+            持续为用户提供稳定、可预期、可沉淀的观看体验。
+          </p>
+          <h3>创作者的成长，就是平台的成长</h3>
+          <p>
+            我们为创作者提供了相对完整的成长路径：新人期有创作指引与选题灵感库，成长期有专题企划联合报名，
+            成熟期有品牌合作与线下活动邀约。会员体验体系在其中承担的是「桥梁」职能——让愿意深入了解创作者的用户，
+            能够更顺畅地接触作品全貌。与此同时，平台对内容合规、素材版权与社区规范保持严格审核，
+            所有上传内容需经过人工与系统双重校验，确保呈现给用户的是值得信赖的精品内容。
+          </p>
+          <p>
+            面向未来，铁粉空间会继续在垂直领域深耕：加强原创纪实的内容投入，扩展创作者访谈的深度，
+            完善会员体验的透明度与可查询性，并持续优化无障碍观看、青少年使用提示等社会责任相关功能。
+            我们不认为一个视频品牌官网只需要好看，它更需要经得起细读。这一页内容，就是我们愿意被细读的部分。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 焦点内容 -->
+  <section class="tf-section" id="tf-focus">
+    <div class="tf-wrap">
+      <div class="tf-section-head">
+        <div>
+          <span class="tf-eyebrow">视频焦点</span>
+          <h2 class="tf-h2">本周焦点：值得完整看完的影像</h2>
+          <p class="tf-sub">由编辑团队与创作者共同推荐，每一部都可追溯到具体的人、具体的时间与具体的现场。</p>
+        </div>
+        <a class="tf-btn tf-btn-ghost" href="#tf-video">查看全部内容</a>
+      </div>
+
+      <div class="tf-focus-grid">
+        <article class="tf-focus-main">
+          <img alt="品牌纪录片《我们如何陪伴》第三集封面，创作者在深夜书房整理素材" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 760 460'%3E%3Cdefs%3E%3ClinearGradient id='f1' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23151a30'/%3E%3Cstop offset='.6' stop-color='%232a3358'/%3E%3Cstop offset='1' stop-color='%234a3a5e'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='760' height='460' fill='url(%23f1)'/%3E%3Ccircle cx='600' cy='110' r='90' fill='%23ffc247' opacity='.3'/%3E%3Crect x='60' y='240' width='340' height='150' rx='10' fill='%23101222' opacity='.9'/%3E%3Crect x='86' y='268' width='288' height='10' rx='5' fill='%23ff5a4d' opacity='.8'/%3E%3Crect x='86' y='294' width='220' height='8' rx='4' fill='%23fff' opacity='.3'/%3E%3Crect x='86' y='316' width='260' height='8' rx='4' fill='%23fff' opacity='.2'/%3E%3Crect x='86' y='338' width='180' height='8' rx='4' fill='%23fff' opacity='.14'/%3E%3Ccircle cx='500' cy='250' r='70' fill='%23e8b98a'/%3E%3Cpath d='M430 250a70 70 0 0 1 140 0v10H430z' fill='%23302a4a'/%3E%3Crect x='438' y='308' width='124' height='96' rx='34' fill='%232fc4a8'/%3E%3Cpath d='M300 150h160l-22 70H322z' fill='%23ff5a4d' opacity='.55'/%3E%3C/svg%3E">
+          <div class="tf-cover-mask">
+            <span class="tf-cover-tag">品牌企划</span>
+            <h3>《我们如何陪伴》第 3 集：一位创作者的 900 个深夜</h3>
+            <p>跟拍自由影像作者周岚三个月，记录她如何在无人观看的深夜里，一次次重新剪辑同一段 47 秒的镜头。</p>
+            <div class="tf-focus-meta">
+              <span>时长 24:16</span><span>导演手记</span><span>2026-11-12 发布</span>
+              <button class="tf-act" type="button" data-tf-like aria-label="点赞">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.5-9.5-9A5 5 0 0 1 12 6a5 5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z"/></svg>
+                <span data-tf-like-count>1,284</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <div class="tf-mini-list">
+          <article class="tf-mini">
+            <div class="tf-mini-thumb">
+              <img alt="城市探索短片《清晨六点的巷子口》封面，早餐摊热气升腾" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 210'%3E%3Crect width='320' height='210' fill='%23f3d6b0'/%3E%3Ccircle cx='250' cy='52' r='40' fill='%23ff9a5a' opacity='.65'/%3E%3Crect x='0' y='150' width='320' height='60' fill='%237a5236'/%3E%3Crect x='40' y='96' width='110' height='58' rx='8' fill='%23b4693f'/%3E%3Crect x='56' y='110' width='78' height='10' rx='5' fill='%23ffe0b8'/%3E%3Cpath d='M150 150c0-24 22-40 40-40s40 16 40 40z' fill='%23e8a166'/%3E%3Crect x='196' y='112' width='10' height='30' fill='%23fff' opacity='.7'/%3E%3C/svg%3E">
+              <span class="tf-play-dot"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+            </div>
+            <div>
+              <h4>清晨六点的巷子口：一座城市的早餐时间</h4>
+              <span>城市探索 · 08:42 · 城市影像组</span>
+            </div>
+          </article>
+          <article class="tf-mini">
+            <div class="tf-mini-thumb">
+              <img alt="手作教程《一只陶杯的第 400 次拉坯》封面，拉坯机上的湿润陶土" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 210'%3E%3Crect width='320' height='210' fill='%23d9c7b0'/%3E%3Crect x='0' y='140' width='320' height='70' fill='%238d6a4a'/%3E%3Ccircle cx='160' cy='132' r='56' fill='%23a9754e'/%3E%3Cpath d='M104 132a56 56 0 0 1 112 0z' fill='%23c78f5f'/%3E%3Cellipse cx='160' cy='132' rx='42' ry='10' fill='%23e0b38a'/%3E%3Ccircle cx='70' cy='60' r='28' fill='%23ffc247' opacity='.55'/%3E%3Cpath d='M230 60l30 30-30 10z' fill='%232fc4a8' opacity='.5'/%3E%3C/svg%3E">
+              <span class="tf-play-dot"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+            </div>
+            <div>
+              <h4>一只陶杯的第 400 次拉坯：失败手记</h4>
+              <span>手作教程 · 15:08 · 阿砚</span>
+            </div>
+          </article>
+          <article class="tf-mini">
+            <div class="tf-mini-thumb">
+              <img alt="人物访谈《和独立剪辑师聊两小时》封面，剪辑室双屏工作台" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 210'%3E%3Crect width='320' height='210' fill='%231d2236'/%3E%3Crect x='30' y='50' width='110' height='70' rx='6' fill='%232c3a63'/%3E%3Crect x='180' y='50' width='110' height='70' rx='6' fill='%232c3a63'/%3E%3Crect x='40' y='60' width='90' height='50' fill='%232fc4a8' opacity='.45'/%3E%3Crect x='190' y='60' width='90' height='50' fill='%23ff5a4d' opacity='.4'/%3E%3Crect x='0' y='160' width='320' height='50' fill='%23141828'/%3E%3Ccircle cx='160' cy='176' r='20' fill='%23ffc247' opacity='.65'/%3E%3C/svg%3E">
+              <span class="tf-play-dot"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+            </div>
+            <div>
+              <h4>和独立剪辑师聊两小时：技术之外的判断</h4>
+              <span>人物访谈 · 41:20 · 编辑团队</span>
+            </div>
+          </article>
+          <article class="tf-mini">
+            <div class="tf-mini-thumb">
+              <img alt="纪实影像《搬家那天，我们丢掉了什么》封面，纸箱与门口的光" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 210'%3E%3Crect width='320' height='210' fill='%23e7ecf3'/%3E%3Crect x='0' y='150' width='320' height='60' fill='%23b9c4d4'/%3E%3Crect x='60' y='80' width='80' height='70' fill='%23c98f5b'/%3E%3Crect x='150' y='96' width='66' height='54' fill='%23ad7546'/%3E%3Crect x='228' y='86' width='56' height='64' fill='%23c98f5b'/%3E%3Crect x='60' y='80' width='80' height='12' fill='%23e0b083'/%3E%3Ccircle cx='280' cy='40' r='26' fill='%23ffc247' opacity='.7'/%3E%3C/svg%3E">
+              <span class="tf-play-dot"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+            </div>
+            <div>
+              <h4>搬家那天，我们丢掉了什么</h4>
+              <span>生活记录 · 11:36 · 林里有风</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 热门视频流 -->
+  <section class="tf-section tf-section-alt" id="tf-video">
+    <div class="tf-wrap">
+      <div class="tf-section-head">
+        <div>
+          <span class="tf-eyebrow">热门内容</span>
+          <h2 class="tf-h2">正在被认真观看的原创内容</h2>
+          <p class="tf-sub">按主题筛选，找到与你此刻状态最贴近的那一条。</p>
+        </div>
+      </div>
+
+      <div class="tf-filter-row" role="group" aria-label="内容主题筛选">
+        <button class="tf-filter is-active" type="button" data-tf-filter="all">全部</button>
+        <button class="tf-filter" type="button" data-tf-filter="记录">日常记录</button>
+        <button class="tf-filter" type="button" data-tf-filter="技能">经验分享</button>
+        <button class="tf-filter" type="button" data-tf-filter="访谈">人物访谈</button>
+        <button class="tf-filter" type="button" data-tf-filter="城市">城市探索</button>
+        <button class="tf-filter" type="button" data-tf-filter="幕后">创作幕后</button>
+      </div>
+
+      <div class="tf-video-grid" id="tfVideoGrid">
+        <article class="tf-video-card" data-tf-tags="记录 城市">
+          <div class="tf-video-cover">
+            <img alt="日常记录《我家阳台上的一年四季》封面，阳台绿植与午后阳光" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'%3E%3Crect width='480' height='270' fill='%23eef3e6'/%3E%3Crect x='0' y='200' width='480' height='70' fill='%23c9d5b4'/%3E%3Crect x='90' y='90' width='300' height='14' fill='%23879d6d'/%3E%3Crect x='110' y='104' width='46' height='58' rx='6' fill='%23f0b96b'/%3E%3Crect x='176' y='104' width='46' height='58' rx='6' fill='%23d9795a'/%3E%3Crect x='242' y='104' width='46' height='58' rx='6' fill='%2387b57a'/%3E%3Ccircle cx='150' cy='74' r='26' fill='%236f9c5c'/%3E%3Ccircle cx='300' cy='66' r='20' fill='%238ab574'/%3E%3Ccircle cx='400' cy='60' r='34' fill='%23ffd98a' opacity='.75'/%3E%3C/svg%3E">
+            <div class="tf-cover-mask2"></div>
+            <span class="tf-cover-label">纪录</span>
+            <span class="tf-cover-duration">09:24</span>
+          </div>
+          <div class="tf-video-body">
+            <h3>我家阳台上的一年四季：从一盆薄荷开始</h3>
+            <p>用 12 次固定机位记录同一块阳台，看植物如何替我们记住时间。</p>
+            <div class="tf-chip-row"><span class="tf-chip">日常记录</span><span class="tf-chip">慢生活</span></div>
+            <div class="tf-video-author">
+              <span class="tf-avatar" style="background:linear-gradient(135deg,#7cb36a,#4e8c44)">林</span>林小满的阳台
+            </div>
+          </div>
+          <div class="tf-video-foot">
+            <div class="tf-video-stats"><span>3.2万 播放</span><span>486 喜欢</span></div>
+            <div>
+              <button class="tf-act" type="button" data-tf-like aria-label="点赞">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.5-9.5-9A5 5 0 0 1 12 6a5 5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z"/></svg>
+                <span data-tf-like-count>486</span>
+              </button>
+              <button class="tf-act" type="button" data-tf-save aria-label="收藏">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 4h12v17l-6-4.5L6 21z"/></svg>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <article class="tf-video-card" data-tf-tags="技能 幕后">
+          <div class="tf-video-cover">
+            <img alt="经验分享《第一次拍访谈，我踩过的 7 个坑》封面，摄像机与灯架" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'%3E%3Crect width='480' height='270' fill='%231c2030'/%3E%3Crect x='60' y='70' width='150' height='96' rx='10' fill='%232d3category'/%3E%3Crect x='60' y='70' width='150' height='96' rx='10' fill='%232f3550'/%3E%3Ccircle cx='135' cy='118' r='34' fill='%23404a72'/%3E%3Ccircle cx='135' cy='118' r='18' fill='%238fa2e8'/%3E%3Crect x='210' y='104' width='40' height='30' rx='6' fill='%23ff5a4d'/%3E%3Crect x='300' y='40' width='8' height='180' fill='%23666c8a'/%3E%3Cpath d='M260 60l90 0-45 44z' fill='%23ffc247' opacity='.85'/%3E%3Crect x='0' y='220' width='480' height='50' fill='%23141722'/%3E%3C/svg%3E">
+            <div class="tf-cover-mask2"></div>
+            <span class="tf-cover-label">干货</span>
+            <span class="tf-cover-duration">18:47</span>
+          </div>
+          <div class="tf-video-body">
+            <h3>第一次拍访谈，我踩过的 7 个坑</h3>
+            <p>收音、机位、提问节奏与采访对象的情绪安全，逐条复盘。</p>
+            <div class="tf-chip-row"><span class="tf-chip">经验分享</span><span class="tf-chip">创作幕后</span></div>
+            <div class="tf-video-author">
+              <span class="tf-avatar" style="background:linear-gradient(135deg,#ff7a5c,#d93f34)">深</span>深夜剪辑室
+            </div>
+          </div>
+          <div class="tf-video-foot">
+            <div class="tf-video-stats"><span>2.8万 播放</span><span>731 喜欢</span></div>
+            <div>
+              <button class="tf-act" type="button" data-tf-like aria-label="点赞">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.5-9.5-9A5 5 0 0 1 12 6a5 5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z"/></svg>
+                <span data-tf-like-count>731</span>
+              </button>
+              <button class="tf-act" type="button" data-tf-save aria-label="收藏">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 4h12v17l-6-4.5L6 21z"/></svg>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <article class="tf-video-card" data-tf-tags="访谈 技能">
+          <div class="tf-video-cover">
+            <img alt="人物访谈《她在县城开了一家放映厅》封面，小放映厅红色座椅" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'%3E%3Crect width='480' height='270' fill='%23240f14'/%3E%3Crect x='40' y='30' width='400' height='110' fill='%23f6efe2'/%3E%3Crect x='100' y='52' width='280' height='66' rx='4' fill='%23e8b98a'/%3E%3Crect x='60' y='150' width='90' height='70' rx='10' fill='%23a52a35'/%3E%3Crect x='170' y='150' width='90' height='70' rx='10' fill='%23a52a35'/%3E%3Crect x='280' y='150' width='90' height='70' rx='10' fill='%23a52a35'/%3E%3Crect x='60' y='140' width='90' height='16' rx='8' fill='%23c94550'/%3E%3Crect x='170' y='140' width='90' height='16' rx='8' fill='%23c94550'/%3E%3Crect x='280' y='140' width='90' height='16' rx='8' fill='%23c94550'/%3E%3Ccircle cx='410' cy='215' r='26' fill='%23ffc247' opacity='.55'/%3E%3C/svg%3E">
+            <div class="tf-cover-mask2"></div>
+            <span class="tf-cover-label">访谈</span>
+            <span class="tf-cover-duration">32:05</span>
+          </div>
+          <div class="tf-video-body">
+            <h3>她在县城开了一家放映厅：放映的第 6 年</h3>
+            <p>票价 15 元，一场最多 9 位观众，她为什么还在坚持放。</p>
+            <div class="tf-chip-row"><span class="tf-chip">人物访谈</span><span class="tf-chip">在地文化</span></div>
+            <div class="tf-video-author">
+              <span class="tf-avatar" style="background:linear-gradient(135deg,#a56bdd,#6a3fb3)">记</span>记录者小组
+            </div>
+          </div>
+          <div class="tf-video-foot">
+            <div class="tf-video-stats"><span>5.1万 播放</span><span>1,206 喜欢</span></div>
+            <div>
+              <button class="tf-act" type="button" data-tf-like aria-label="点赞">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.5-9.5-9A5 5 0 0 1 12 6a5 5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z"/></svg>
+                <span data-tf-like-count>1206</span>
+              </button>
+              <button class="tf-act" type="button" data-tf-save aria-label="收藏">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 4h12v17l-6-4.5L6 21z"/></svg>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <article class="tf-video-card" data-tf-tags="城市 记录">
+          <div class="tf-video-cover">
+            <img alt="城市探索《沿着一条河走完整个城区》封面，河岸步道与傍晚楼群" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'%3E%3Crect width='480' height='270' fill='%238fc0dd'/%3E%3Crect x='0' y='150' width='480' height='120' fill='%234f7f9c'/%3E%3Crect x='20' y='70' width='60' height='90' fill='%2369798f'/%3E%3Crect x='92' y='40' width='48' height='120' fill='%237d8ea6'/%3E%3Crect x='152' y='86' width='70' height='74' fill='%2369798f'/%3E%3Crect x='330' y='62' width='54' height='98' fill='%237d8ea6'/%3E%3Crect x='396' y='96' width='62' height='64' fill='%2369798f'/%3E%3Cpath d='M0 150h480v10H0z' fill='%23dbe8ef'/%3E%3Cpath d='M0 190h480v6H0z' fill='%23a8c9d9'/%3E%3Ccircle cx='420' cy='46' r='24' fill='%23ffe1a3' opacity='.9'/%3E%3C/svg%3E">
+            <div class="tf-cover-mask2"></div>
+            <span class="tf-cover-label">城市</span>
+            <span class="tf-cover-duration">22:10</span>
+          </div>
+          <div class="tf-video-body">
+            <h3>沿着一条河走完整个城区：17 公里的散步</h3>
+            <p>从上游的老桥到下游的新区，用脚步串起一座城的旧与新。</p>
+            <div class="tf-chip-row"><span class="tf-chip">城市探索</span><span class="tf-chip">旅行见闻</span></div>
+            <div class="tf-video-author">
+              <span class="tf-avatar" style="background:linear-gradient(135deg,#5aa9d9,#2b6f9c)">走</span>走读城市
+            </div>
+          </div>
+          <div class="tf-video-foot">
+            <div class="tf-video-stats"><span>4.4万 播放</span><span>892 喜欢</span></div>
+            <div>
+              <button class="tf-act" type="button" data-tf-like aria-label="点赞">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.5-9.5-9A5 5 0 0 1 12 6a5 5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z"/></svg>
+                <span data-tf-like-count>892</span>
+              </button>
+              <button class="tf-act" type="button" data-tf-save aria-label="收藏">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 4h12v17l-6-4.5L6 21z"/></svg>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <article class="tf-video-card" data-tf-tags="记录 幕后">
+          <div class="tf-video-cover">
+            <img alt="创作幕后《一条 60 秒短片背后的 21 版脚本》封面，散落的分镜手稿" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'%3E%3Crect width='480' height='270' fill='%23f4efe6'/%3E%3Crect x='30' y='40' width='130' height='90' rx='4' fill='%23fff' stroke='%23d8cfc0'/%3E%3Crect x='50' y='60' width='88' height='8' fill='%23c9bda9'/%3E%3Crect x='50' y='78' width='66' height='8' fill='%23c9bda9'/%3E%3Crect x='50' y='96' width='78' height='8' fill='%23c9bda9'/%3E%3Crect x='180' y='70' width='130' height='90' rx='4' fill='%23fff' stroke='%23d8cfc0'/%3E%3Crect x='200' y='90' width='88' height='8' fill='%23c9bda9'/%3E%3Crect x='200' y='108' width='60' height='8' fill='%23c9bda9'/%3E%3Crect x='330' y='40' width='120' height='110' rx='4' fill='%23fff' stroke='%23d8cfc0'/%3E%3Ccircle cx='390' cy='90' r='30' fill='%23ff5a4d' opacity='.5'/%3E%3Crect x='44' y='150' width='120' height='76' rx='4' fill='%23fff' stroke='%23d8cfc0'/%3E%3Crect x='190' y='160' width='150' height='66' rx='4' fill='%23fff' stroke='%23d8cfc0'/%3E%3Ccircle cx='420' cy='190' r='34' fill='%232fc4a8' opacity='.35'/%3E%3C/svg%3E">
+            <div class="tf-cover-mask2"></div>
+            <span class="tf-cover-label">幕后</span>
+            <span class="tf-cover-duration">13:33</span>
+          </div>
+          <div class="tf-video-body">
+            <h3>一条 60 秒短片背后的 21 版脚本</h3>
+            <p>把废稿摊在桌上，聊聊那些被删掉的句子为什么必须删。</p>
+            <div class="tf-chip-row"><span class="tf-chip">创作幕后</span><span class="tf-chip">行业观察</span></div>
+            <div class="tf-video-author">
+              <span class="tf-avatar" style="background:linear-gradient(135deg,#e0a24b,#b97a22)">纸</span>纸上脚本
+            </div>
+          </div>
+          <div class="tf-video-foot">
+            <div class="tf-video-stats"><span>1.9万 播放</span><span>413 喜欢</span></div>
+            <div>
+              <button class="tf-act" type="button" data-tf-like aria-label="点赞">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.5-9.5-9A5 5 0 0 1 12 6a5 5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z"/></svg>
+                <span data-tf-like-count>413</span>
+              </button>
+              <button class="tf-act" type="button" data-tf-save aria-label="收藏">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 4h12v17l-6-4.5L6 21z"/></svg>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <article class="tf-video-card" data-tf-tags="技能 记录">
+          <div class="tf-video-cover">
+            <img alt="经验分享《家庭厨房的 5 个低成本收纳方案》封面，整洁的木质橱柜" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'%3E%3Crect width='480' height='270' fill='%23f7ead8'/%3E%3Crect x='40' y='40' width='400' height='190' rx='8' fill='%23e0c9a5'/%3E%3Crect x='60' y='60' width='170' height='70' rx='5' fill='%23fdf7ee'/%3E%3Crect x='250' y='60' width='170' height='70' rx='5' fill='%23fdf7ee'/%3E%3Crect x='60' y='150' width='170' height='60' rx='5' fill='%23fdf7ee'/%3E%3Crect x='250' y='150' width='170' height='60' rx='5' fill='%23fdf7ee'/%3E%3Ccircle cx='100' cy='90' r='16' fill='%23d9795a'/%3E%3Crect x='270' y='76' width='60' height='36' rx='4' fill='%2387b57a'/%3E%3Crect x='90' y='170' width='100' height='20' rx='4' fill='%23c9a06c'/%3E%3Crect x='280' y='166' width='70' height='28' rx='4' fill='%23c9a06c'/%3E%3C/svg%3E">
+            <div class="tf-cover-mask2"></div>
+            <span class="tf-cover-label">干货</span>
+            <span class="tf-cover-duration">10:58</span>
+          </div>
+          <div class="tf-video-body">
+            <h3>家庭厨房的 5 个低成本收纳方案</h3>
+            <p>不用换橱柜，靠动线与分区把台面空出来。</p>
+            <div class="tf-chip-row"><span class="tf-chip">实用技巧</span><span class="tf-chip">家居收纳</span></div>
+            <div class="tf-video-author">
+              <span class="tf-avatar" style="background:linear-gradient(135deg,#c9a06c,#8a6538)">朵</span>朵拉的厨房
+            </div>
+          </div>
+          <div class="tf-video-foot">
+            <div class="tf-video-stats"><span>3.6万 播放</span><span>602 喜欢</span></div>
+            <div>
+              <button class="tf-act" type="button" data-tf-like aria-label="点赞">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.5-9.5-9A5 5 0 0 1 12 6a5 5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z"/></svg>
+                <span data-tf-like-count>602</span>
+              </button>
+              <button class="tf-act" type="button" data-tf-save aria-label="收藏">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 4h12v17l-6-4.5L6 21z"/></svg>
+              </button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 专题 -->
+  <section class="tf-section" id="tf-topic">
+    <div class="tf-wrap">
+      <div class="tf-section-head">
+        <div>
+          <span class="tf-eyebrow">专题企划</span>
+          <h2 class="tf-h2">由品牌发起、创作者共创的长期企划</h2>
+          <p class="tf-sub">每个企划都有明确的更新时间与参与方式，欢迎报名、上传与投票。</p>
+        </div>
+      </div>
+      <div class="tf-topic-grid">
+        <article class="tf-topic">
+          <img alt="专题《我和我的铁粉》封面，创作者与粉丝在户外合影的剪影" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 400'%3E%3Crect width='300' height='400' fill='%23202a44'/%3E%3Ccircle cx='220' cy='90' r='60' fill='%23ff8b5e' opacity='.55'/%3E%3Crect x='0' y='280' width='300' height='120' fill='%23151a2c'/%3E%3Ccircle cx='95' cy='250' r='30' fill='%23e8b98a'/%3E%3Cpath d='M60 280a35 35 0 0 1 70 0v40H60z' fill='%23ff5a4d'/%3E%3Ccircle cx='185' cy='262' r='26' fill='%23f0c9a3'/%3E%3Cpath d='M155 290a30 30 0 0 1 60 0v30h-60z' fill='%232fc4a8'/%3E%3C/svg%3E">
+          <div class="tf-topic-mask">
+            <span class="tf-topic-status is-live">报名中</span>
+            <h3>我和我的铁粉</h3>
+            <p>征集创作者与粉丝之间的真实故事，入选作品将进入年度企划展映。</p>
+          </div>
+        </article>
+        <article class="tf-topic">
+          <img alt="专题《陪伴计划》封面，深夜窗边亮着的一盏台灯" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 400'%3E%3Crect width='300' height='400' fill='%231a1e30'/%3E%3Crect x='70' y='60' width='160' height='230' rx='6' fill='%23263050'/%3E%3Crect x='92' y='82' width='116' height='110' rx='4' fill='%23ffc247' opacity='.22'/%3E%3Crect x='130' y='200' width='40' height='52' fill='%23ffc247' opacity='.6'/%3E%3Cpath d='M110 252h80l-40 26z' fill='%23ffc247' opacity='.45'/%3E%3Crect x='0' y='300' width='300' height='100' fill='%23141828'/%3E%3Ccircle cx='250' cy='120' r='26' fill='%23ff5a4d' opacity='.5'/%3E%3C/svg%3E">
+          <div class="tf-topic-mask">
+            <span class="tf-topic-status">更新至 12 集</span>
+            <h3>陪伴计划</h3>
+            <p>12 组纪实影像，记录那些长期做同一件事的人。</p>
+          </div>
+        </article>
+        <article class="tf-topic">
+          <img alt="专题《一间工作室》封面，木架上排列的手工器物" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 400'%3E%3Crect width='300' height='400' fill='%23efe3d1'/%3E%3Crect x='30' y='90' width='240' height='12' fill='%23a9754e'/%3E%3Crect x='30' y='190' width='240' height='12' fill='%23a9754e'/%3E%3Crect x='30' y='290' width='240' height='12' fill='%23a9754e'/%3E%3Crect x='56' y='40' width='34' height='50' rx='6' fill='%23c78f5f'/%3E%3Crect x='110' y='52' width='28' height='38' rx='14' fill='%2387b57a'/%3E%3Crect x='164' y='34' width='40' height='56' rx='4' fill='%23d9795a'/%3E%3Crect x='60' y='140' width='46' height='50' rx='4' fill='%23b98a5e'/%3E%3Crect x='130' y='150' width='30' height='40' rx='15' fill='%23ffc247'/%3E%3Crect x='186' y='136' width='48' height='54' rx='6' fill='%23a9754e'/%3E%3C/svg%3E">
+          <div class="tf-topic-mask">
+            <span class="tf-topic-status is-live">长期企划</span>
+            <h3>一间工作室</h3>
+            <p>走进独立创作者的工作空间，看器物如何长出秩序。</p>
+          </div>
+        </article>
+        <article class="tf-topic">
+          <img alt="专题《重新认识这座城》封面，老街与远处新楼的双重曝光" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 400'%3E%3Crect width='300' height='400' fill='%237ea9c4'/%3E%3Crect x='0' y='240' width='300' height='160' fill='%234a6b82'/%3E%3Crect x='20' y='120' width='70' height='120' fill='%235d7f96'/%3E%3Crect x='104' y='80' width='56' height='160' fill='%236b8fa6'/%3E%3Crect x='176' y='140' width='90' height='100' fill='%235d7f96'/%3E%3Cpath d='M0 240h300v8H0z' fill='%23cfe2ec'/%3E%3Ccircle cx='240' cy='60' r='30' fill='%23ffe1a3' opacity='.85'/%3E%3C/svg%3E">
+          <div class="tf-topic-mask">
+            <span class="tf-topic-status">投票进行中</span>
+            <h3>重新认识这座城</h3>
+            <p>本地创作者联合企划，用影像回应「你熟悉的城市正在变化」。</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 创作者 -->
+  <section class="tf-section tf-section-alt" id="tf-creator">
+    <div class="tf-wrap">
+      <div class="tf-section-head">
+        <div>
+          <span class="tf-eyebrow">创作者矩阵</span>
+          <h2 class="tf-h2">值得长期关注的原创作者</h2>
+          <p class="tf-sub">平台为创作者提供选题支持、剪辑协作与品牌合作对接，让好内容走得更远。</p>
+        </div>
+      </div>
+      <div class="tf-creator-grid">
+        <article class="tf-creator">
+          <div class="tf-creator-avatar" style="background:linear-gradient(135deg,#7cb36a,#4e8c44)">林</div>
+          <h3>林小满的阳台</h3>
+          <div class="tf-c-domain">日常记录 · 慢生活</div>
+          <p>用固定机位记录植物与日常，一年只交 24 条片子，但每条都有四季。</p>
+          <div class="tf-creator-data">
+            <div><b>86</b><span>作品数</span></div>
+            <div><b>12.4万</b><span>关注</span></div>
+          </div>
+          <button class="tf-creator-more" type="button" data-tf-author="林小满的阳台">查看档案</button>
+        </article>
+        <article class="tf-creator">
+          <div class="tf-creator-avatar" style="background:linear-gradient(135deg,#ff7a5c,#d93f34)">深</div>
+          <h3>深夜剪辑室</h3>
+          <div class="tf-c-domain">创作幕后 · 教程干货</div>
+          <p>前纪录片剪辑师，专讲那些教程不会说的判断与取舍。</p>
+          <div class="tf-creator-data">
+            <div><b>142</b><span>作品数</span></div>
+            <div><b>21.7万</b><span>关注</span></div>
+          </div>
+          <button class="tf-creator-more" type="button" data-tf-author="深夜剪辑室">查看档案</button>
+        </article>
+        <article class="tf-creator">
+          <div class="tf-creator-avatar" style="background:linear-gradient(135deg,#a56bdd,#6a3fb3)">记</div>
+          <h3>记录者小组</h3>
+          <div class="tf-c-domain">人物访谈 · 在地文化</div>
+          <p>三个人一支队伍，长期在小城与县城寻找值得被拍下来的人。</p>
+          <div class="tf-creator-data">
+            <div><b>64</b><span>作品数</span></div>
+            <div><b>17.2万</b><span>关注</span></div>
+          </div>
+          <button class="tf-creator-more" type="button" data-tf-author="记录者小组">查看档案</button>
+        </article>
+        <article class="tf-creator">
+          <div class="tf-creator-avatar" style="background:linear-gradient(135deg,#5aa9d9,#2b6f9c)">走</div>
+          <h3>走读城市</h3>
+          <div class="tf-c-domain">城市探索 · 旅行见闻</div>
+          <p>坚持步行拍摄，一条路线一集，不坐车、不摆拍、不赶时间。</p>
+          <div class="tf-creator-data">
+            <div><b>108</b><span>作品数</span></div>
+            <div><b>15.8万</b><span>关注</span></div>
+          </div>
+          <button class="tf-creator-more" type="button" data-tf-author="走读城市">查看档案</button>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 作品墙 -->
+  <section class="tf-section" id="tf-wall">
+    <div class="tf-wrap">
+      <div class="tf-section-head">
+        <div>
+          <span class="tf-eyebrow">作品墙</span>
+          <h2 class="tf-h2">本周社区影像精选</h2>
+          <p class="tf-sub">来自官方征稿与创作者日常投稿，所有作品均经版权与内容审核。</p>
+        </div>
+      </div>
+      <div class="tf-wall">
+        <div class="tf-wall-item tf-wall-w2">
+          <img alt="社区作品《雨后的旧书店》封面，湿漉漉的街道与暖黄橱窗" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 420 260'%3E%3Crect width='420' height='260' fill='%23444e63'/%3E%3Crect x='0' y='180' width='420' height='80' fill='%232e3547'/%3E%3Crect x='60' y='80' width='130' height='104' fill='%23ffc247' opacity='.55'/%3E%3Crect x='80' y='100' width='90' height='64' fill='%23d9795a' opacity='.7'/%3E%3Crect x='240' y='60' width='120' height='124' fill='%23565f75'/%3E%3Crect x='258' y='82' width='34' height='46' fill='%23ffe1a3' opacity='.5'/%3E%3Crect x='308' y='82' width='34' height='46' fill='%23ffe1a3' opacity='.35'/%3E%3Cpath d='M0 190h420v10H0z' fill='%238b9ab3' opacity='.6'/%3E%3C/svg%3E">
+          <span>雨后的旧书店 · 阿岚</span>
+        </div>
+        <div class="tf-wall-item tf-wall-h2">
+          <img alt="社区作品《第一次做的木勺》封面，木屑与刻刀特写" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 140'%3E%3Crect width='220' height='140' fill='%23e6d3b8'/%3E%3Crect x='56' y='40' width='110' height='34' rx='16' fill='%23b98a5e'/%3E%3Crect x='150' y='46' width='30' height='22' rx='11' fill='%23a9754e'/%3E%3Crect x='40' y='96' width='60' height='10' rx='5' fill='%23c9a06c' opacity='.7'/%3E%3Crect x='110' y='104' width='40' height='8' rx='4' fill='%23c9a06c' opacity='.5'/%3E%3Ccircle cx='186' cy='110' r='14' fill='%23ffc247' opacity='.6'/%3E%3C/svg%3E">
+          <span>第一次做的木勺</span>
+        </div>
+        <div class="tf-wall-item">
+          <img alt="社区作品《晨跑第六年》封面，日出下的跑道" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 140'%3E%3Crect width='220' height='140' fill='%23ffd9a8'/%3E%3Ccircle cx='110' cy='96' r='30' fill='%23ff9a5a'/%3E%3Crect x='0' y='110' width='220' height='30' fill='%23c98f5b'/%3E%3Cpath d='M40 110h140' stroke='%23fff' stroke-width='3' opacity='.7'/%3E%3C/svg%3E">
+          <span>晨跑第六年</span>
+        </div>
+        <div class="tf-wall-item">
+          <img alt="社区作品《雨天的手冲咖啡》封面，玻璃壶与雨窗" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 140'%3E%3Crect width='220' height='140' fill='%236b7a8f'/%3E%3Crect x='70' y='40' width='80' height='70' rx='8' fill='%23e8dccb'/%3E%3Crect x='86' y='58' width='48' height='40' rx='4' fill='%236b4630'/%3E%3Cpath d='M20 0v140M200 0v140' stroke='%23c3cfdd' stroke-width='2' opacity='.4'/%3E%3C/svg%3E">
+          <span>雨天的手冲咖啡</span>
+        </div>
+        <div class="tf-wall-item tf-wall-h2">
+          <img alt="社区作品《旧相册里的夏天》封面，泛黄照片与风扇" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 140'%3E%3Crect width='220' height='140' fill='%23d8c4a2'/%3E%3Crect x='30' y='26' width='90' height='90' fill='%23efe2c8'/%3E%3Crect x='44' y='40' width='62' height='48' fill='%23b98a5e'/%3E%3Ccircle cx='160' cy='70' r='30' fill='%23879d6d' opacity='.55'/%3E%3Ccircle cx='160' cy='70' r='12' fill='%23444e63'/%3E%3C/svg%3E">
+          <span>旧相册里的夏天</span>
+        </div>
+        <div class="tf-wall-item">
+          <img alt="社区作品《楼下修鞋铺》封面，老式修鞋机与工具" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 140'%3E%3Crect width='220' height='140' fill='%23605a52'/%3E%3Crect x='50' y='60' width='90' height='46' rx='6' fill='%238a7d6c'/%3E%3Ccircle cx='95' cy='83' r='16' fill='%23c9a06c'/%3E%3Crect x='140' y='40' width='8' height='80' fill='%234a453f'/%3E%3Crect x='160' y='72' width='34' height='12' rx='4' fill='%23b98a5e'/%3E%3C/svg%3E">
+          <span>楼下修鞋铺</span>
+        </div>
+        <div class="tf-wall-item">
+          <img alt="社区作品《搬家纸箱里的猫》封面，纸箱口探出的猫耳" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 140'%3E%3Crect width='220' height='140' fill='%23efe3d1'/%3E%3Crect x='46' y='56' width='128' height='80' fill='%23c9a06c'/%3E%3Cpath d='M46 56l20-22h88l20 22z' fill='%23b98a5e'/%3E%3Ccircle cx='110' cy='96' r='24' fill='%23ffd9b8'/%3E%3Cpath d='M92 86l-8-18 18 8z' fill='%23ffd9b8'/%3E%3Cpath d='M128 86l8-18-18 8z' fill='%23ffd9b8'/%3E%3C/svg%3E">
+          <span>搬家纸箱里的猫</span>
+        </div>
+        <div class="tf-wall-item">
+          <img alt="社区作品《厂区最后一班夜班》封面，夜灯下的铁门" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 140'%3E%3Crect width='220' height='140' fill='%231d2231'/%3E%3Crect x='0' y='96' width='220' height='44' fill='%23131622'/%3E%3Crect x='40' y='40' width='60' height='56' fill='%232a3350'/%3E%3Crect x='120' y='52' width='60' height='44' fill='%232a3350'/%3E%3Ccircle cx='70' cy='70' r='5' fill='%23ffc247'/%3E%3Ccircle cx='150' cy='76' r='4' fill='%23ffc247'/%3E%3Ccircle cx='186' cy='34' r='16' fill='%23ff8b5e' opacity='.5'/%3E%3C/svg%3E">
+          <span>厂区最后一班夜班</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 故事 + 评论 -->
+  <section class="tf-section tf-section-alt" id="tf-stories">
+    <div class="tf-wrap">
+      <div class="tf-section-head">
+        <div>
+          <span class="tf-eyebrow">故事与回声</span>
+          <h2 class="tf-h2">影像之外，那些被写下来的话</h2>
+          <p class="tf-sub">创作者手记与用户反馈，构成了这个社区真正的温度。</p>
+        </div>
+      </div>
+
+      <div class="tf-story-grid">
+        <article class="tf-story">
+          <div class="tf-story-quote">“</div>
+          <h3>拍完那条片子，我把相机放了一个月</h3>
+          <p>连续三个月，我每天都在剪同一段素材。直到某天，一位观众留言说「我看了三遍」，我才意识到，不是我拍得不够好，是我太想让它好了。</p>
+          <div class="tf-story-by"><span class="tf-avatar" style="background:linear-gradient(135deg,#ff7a5c,#d93f34)">深</span>深夜剪辑室 · 创作手记</div>
+        </article>
+        <article class="tf-story">
+          <div class="tf-story-quote">“</div>
+          <h3>在县城放映的第 6 年，我学会了等待</h3>
+          <p>最冷清的一晚来了两个人。我们三个人看完了整部片子，散场时有人说「谢谢你放这个」。就为这句话，我决定再放一年。</p>
+          <div class="tf-story-by"><span class="tf-avatar" style="background:linear-gradient(135deg,#a56bdd,#6a3fb3)">记</span>记录者小组 · 现场笔记</div>
+        </article>
+        <article class="tf-story">
+          <div class="tf-story-quote">“</div>
+          <h3>我把阳台的薄荷养死了三次</h3>
+          <p>第四次终于活下来。视频里我只说了句「这次它活了」，弹幕里全是「恭喜」。原来最普通的日常，也能被很多人接住。</p>
+          <div class="tf-story-by"><span class="tf-avatar" style="background:linear-gradient(135deg,#7cb36a,#4e8c44)">林</span>林小满的阳台 · 生活随笔</div>
+        </article>
+      </div>
+
+      <div class="tf-section-head" style="margin-top:52px">
+        <div>
+          <span class="tf-eyebrow">用户回声</span>
+          <h2 class="tf-h2">他们这样评价铁粉空间</h2>
+        </div>
+      </div>
+      <div class="tf-review-row">
+        <article class="tf-review">
+          <div class="tf-review-head">
+            <span class="tf-avatar" style="background:linear-gradient(135deg,#5aa9d9,#2b6f9c)">陈</span>
+            <div>
+              <div class="tf-review-name">陈女士 · 内容爱好者</div>
+              <div class="tf-review-time">2026-11-16</div>
+            </div>
+          </div>
+          <div class="tf-stars">★★★★★</div>
+          <p class="tf-review-text">很少见到把会员规则写得这么清楚的官方网站，从条件到边界都写明白了，不用猜，也不用来回问客服。这一点让人挺安心。</p>
+        </article>
+        <article class="tf-review">
+          <div class="tf-review-head">
+            <span class="tf-avatar" style="background:linear-gradient(135deg,#e0a24b,#b97a22)">周</span>
+            <div>
+              <div class="tf-review-name">周同学 · 大三学生</div>
+              <div class="tf-review-time">2026-11-14</div>
+            </div>
+          </div>
+          <div class="tf-stars">★★★★★</div>
+          <p class="tf-review-text">剪辑室那几期对我帮助很大，讲得具体，不空谈方法论。看完自己重剪了一版作业，老师说节奏明显好了。</p>
+        </article>
+        <article class="tf-review">
+          <div class="tf-review-head">
+            <span class="tf-avatar" style="background:linear-gradient(135deg,#7cb36a,#4e8c44)">苏</span>
+            <div>
+              <div class="tf-review-name">苏苏 · 手工创作者</div>
+              <div class="tf-review-time">2026-11-11</div>
+            </div>
+          </div>
+          <div class="tf-stars">★★★★☆</div>
+          <p class="tf-review-text">投稿审核比较严格，一开始觉得麻烦，后来发现这也是对创作者的保护。作品墙上的展示效果比预期好很多。</p>
+        </article>
+        <article class="tf-review">
+          <div class="tf-review-head">
+            <span class="tf-avatar" style="background:linear-gradient(135deg,#a56bdd,#6a3fb3)">何</span>
+            <div>
+              <div class="tf-review-name">何先生 · 自由摄影师</div>
+              <div class="tf-review-time">2026-11-09</div>
+            </div>
+          </div>
+          <div class="tf-stars">★★★★★</div>
+          <p class="tf-review-text">专题企划的策划能力是我留在这里的原因。不是追热点，而是真的想长期做一个题目，这在现在的平台里不多见。</p>
+        </article>
+        <article class="tf-review">
+          <div class="tf-review-head">
+            <span class="tf-avatar" style="background:linear-gradient(135deg,#ff7a5c,#d93f34)">小</span>
+            <div>
+              <div class="tf-review-name">小满的妈妈 · 家长用户</div>
+              <div class="tf-review-time">2026-11-06</div>
+            </div>
+          </div>
+          <div class="tf-stars">★★★★☆</div>
+          <p class="tf-review-text">陪孩子一起看生活记录类的内容，节奏比较慢，但孩子看得很专注。希望以后能有更多关于青少年使用的提示。</p>
+        </article>
+        <article class="tf-review">
+          <div class="tf-review-head">
+            <span class="tf-avatar" style="background:linear-gradient(135deg,#2fc4a8,#1a8c76)">徐</span>
+            <div>
+              <div class="tf-review-name">徐编辑 · 企业内容负责人</div>
+              <div class="tf-review-time">2026-11-03</div>
+            </div>
+          </div>
+          <div class="tf-stars">★★★★★</div>
+          <p class="tf-review-text">和铁粉空间合作了一支品牌纪实短片，沟通流程规范，创作者匹配也准。作为企业方，愿意继续长期合作。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 灵感 + 榜单 -->
+  <section class="tf-section" id="tf-inspire">
+    <div class="tf-wrap">
+      <div class="tf-split-grid">
+        <div class="tf-inspire">
+          <span class="tf-eyebrow">创作灵感</span>
+          <h2 class="tf-h2">下一支片子，可以从这里开始</h2>
+          <p class="tf-sub">平台编辑团队与资深创作者每周整理的选题与剪辑思路，供会员与创作者参考使用。</p>
+          <div class="tf-inspire-grid">
+            <div class="tf-inspire-item">
+              <b>选题灵感 · 日常记录</b>
+              以「同一扇窗」为主题，连拍 7 天不同时段的光线变化，剪成 90 秒无对白短片。
+              <button type="button" data-tf-copy="同一扇窗 7 天">复制灵感</button>
+            </div>
+            <div class="tf-inspire-item">
+              <b>标题建议 · 人物访谈</b>
+              少用「揭秘」「揭秘背后」，多用具体时间与具体动作，例如《他修了 12 年同一台机器》。
+              <button type="button" data-tf-copy="他修了12年同一台机器">复制标题</button>
+            </div>
+            <div class="tf-inspire-item">
+              <b>剪辑思路 · 纪实</b>
+              先剪声音再剪画面，让呼吸声和脚步成为节奏，而不是用音乐强行带情绪。
+              <button type="button" data-tf-copy="先剪声音再剪画面">复制思路</button>
+            </div>
+            <div class="tf-inspire-item">
+              <b>拍摄技巧 · 人物</b>
+              访谈机位略低于视线，被访者更容易放松；留白比特写更能承载沉默。
+              <button type="button" data-tf-copy="机位略低于视线">复制技巧</button>
+            </div>
+          </div>
+        </div>
+
+        <aside class="tf-rank">
+          <span class="tf-eyebrow">本周榜单</span>
+          <h3 style="font-size:19px;margin-bottom:14px">口碑热度榜</h3>
+          <ol>
+            <li><span class="tf-rank-no">1</span><span class="tf-rank-title">她和她的放映厅</span><span class="tf-rank-hot">9.7</span></li>
+            <li><span class="tf-rank-no">2</span><span class="tf-rank-title">我们如何陪伴 · 第 3 集</span><span class="tf-rank-hot">9.6</span></li>
+            <li><span class="tf-rank-no">3</span><span class="tf-rank-title">一只陶杯的第 400 次拉坯</span><span class="tf-rank-hot">9.4</span></li>
+            <li><span class="tf-rank-no">4</span><span class="tf-rank-title">沿着一条河走完整个城区</span><span class="tf-rank-hot">9.2</span></li>
+            <li><span class="tf-rank-no">5</span><span class="tf-rank-title">第一次拍访谈踩过的坑</span><span class="tf-rank-hot">9.1</span></li>
+            <li><span class="tf-rank-no">6</span><span class="tf-rank-title">我家阳台上的一年四季</span><span class="tf-rank-hot">8.9</span></li>
+          </ol>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- 企业动态 & 合作 -->
+  <section class="tf-section tf-section-alt" id="tf-updates">
+    <div class="tf-wrap">
+      <div class="tf-section-head">
+        <div>
+          <span class="tf-eyebrow">企业动态</span>
+          <h2 class="tf-h2">官方发布与内容更新</h2>
+          <p class="tf-sub">平台的重要调整均在此同步，信息可持续查询。</p>
+        </div>
+      </div>
+      <div class="tf-updates">
+        <div class="tf-update">
+          <div class="tf-update-date">11<br>19</div>
+          <div class="tf-update-body">
+            <b>「陪伴计划」专题新增 4 组纪实影像</b>
+            <span>本期聚焦长期从事同一职业的普通人，包含手作、放映、修鞋与夜班四组题材。</span>
+          </div>
+        </div>
+        <div class="tf-update">
+          <div class="tf-update-date">11<br>15</div>
+          <div class="tf-update-body">
+            <b>会员体验规则说明页更新，条款更清晰</b>
+            <span>补充了会员体验的阶段划分、公开条件与查询方式，全部内容在官方网站可查。</span>
+          </div>
+        </div>
+        <div class="tf-update">
+          <div class="tf-update-date">11<br>08</div>
+          <div class="tf-update-body">
+            <b>创作者扶持计划第二期开放报名</b>
+            <span>面向纪实、生活记录与人物访谈方向，提供选题支持与拍摄资源对接，报名截止 12 月初。</span>
+          </div>
+        </div>
+        <div class="tf-update">
+          <div class="tf-update-date">10<br>28</div>
+          <div class="tf-update-body">
+            <b>上传规范与版权指引修订发布</b>
+            <span>进一步明确素材授权与二次创作边界，创作者上传前可在帮助中心查阅最新版本。</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tf-partners" aria-label="合作品牌">
+        <div class="tf-partner">北野影像</div>
+        <div class="tf-partner">知一出版社</div>
+        <div class="tf-partner">木与陶工作室</div>
+        <div class="tf-partner">城市观察所</div>
+        <div class="tf-partner">慢工咖啡</div>
+        <div class="tf-partner">光影器材</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="tf-section" id="tf-faq">
+    <div class="tf-wrap">
+      <div class="tf-section-head">
+        <div>
+          <span class="tf-eyebrow">帮助中心</span>
+          <h2 class="tf-h2">关于会员与内容，常见问题</h2>
+          <p class="tf-sub">如果这里没有你要的答案，可通过页面底部联系方式与官方团队沟通。</p>
+        </div>
+      </div>
+      <div class="tf-faq">
+        <details open>
+          <summary>铁粉空间免费会员的体验权益如何获取？</summary>
+          <p>会员体验权益由平台统一组织与发放，具体条件、阶段与可使用范围以本站会员中心与官方公告展示的信息为准。平台不会通过任何非官方网站渠道提供获取方式，也不会要求用户向个人账户提交费用或敏感信息。</p>
+        </details>
+        <details>
+          <summary>会员体验内容与普通内容有什么区别？</summary>
+          <p>普通内容对所有访客开放浏览。会员体验内容主要包含部分专题企划的完整版、创作者档案的深度资料、作品墙的高清预览，以及会员专场的线上活动参与资格。所有内容均经版权与合规审核。</p>
+        </details>
+        <details>
+          <summary>我可以如何投稿自己的作品？</summary>
+          <p>页面底部设有投稿入口，填写作品方向、时长与素材来源即可提交。平台会在 5 个工作日内给出初审反馈。请确保素材为原创或已获得明确授权，涉及他人肖像需取得同意。</p>
+        </details>
+        <details>
+          <summary>平台如何审核内容，是否会影响更新速度？</summary>
+          <p>所有上传内容需经过系统与人工双重审核。审核重点包括版权、内容合规与社区规范。为提高效率，建议上传前阅读帮助中心的素材与版权指引，通常可以显著缩短审核时间。</p>
+        </details>
+        <details>
+          <summary>创作者如何参与专题企划？</summary>
+          <p>平台会定期在「企业动态」发布企划招募信息，创作者可通过报名入口提交选题构想与过往作品。入选后，平台会提供选题支持、拍摄协作与上线安排，并与创作者共同确认内容呈现方式。</p>
+        </details>
+        <details>
+          <summary>我发现内容或评论有问题，如何反馈？</summary>
+          <p>可在对应内容下方使用反馈入口，或通过底部联系方式提交说明。平台设有专门的社区治理流程，会对举报内容进行核实并在合理时限内处理，处理结果可通过原渠道查询。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 联系 -->
+  <section class="tf-section tf-section-alt" id="tf-contact">
+    <div class="tf-wrap">
+      <div class="tf-section-head">
+        <div>
+          <span class="tf-eyebrow">联系与投稿</span>
+          <h2 class="tf-h2">和铁粉空间的官方团队聊聊</h2>
+          <p class="tf-sub">内容合作、品牌共创、投稿与会员咨询，均可通过以下方式联系。</p>
+        </div>
+      </div>
+      <div class="tf-contact-grid">
+        <div class="tf-contact-card">
+          <h3>品牌官网 · 官方信息</h3>
+          <p>铁粉空间由品牌团队自主运营，所有对外合作、内容发布与会员说明均通过官方渠道进行。欢迎创作者、机构与媒体与我们建立长期联系。</p>
+          <div class="tf-contact-list">
+            <div><i>✉</i>品牌合作：brand@tiefenspace.example</div>
+            <div><i>✎</i>内容投稿：create@tiefenspace.example</div>
+            <div><i>☎</i>客服热线：400-000-0000（工作日 10:00–19:00）</div>
+            <div><i>⌂</i>办公地址：城市创意园区 B 座 7 层内容中心</div>
+            <div><i>◎</i>官方账号：铁粉空间（各平台同名认证）</div>
+          </div>
+          <div style="margin-top:22px;display:flex;gap:10px;flex-wrap:wrap">
+            <button class="tf-btn tf-btn-primary" type="button" data-tf-copy="铁粉空间官方网站 · 内容与会员说明">复制官网信息</button>
+            <button class="tf-btn tf-btn-ghost" type="button" id="tfReportBtn" style="background:transparent;color:#fff;border-color:rgba(255,255,255,.3)">意见反馈</button>
+          </div>
+        </div>
+        <form class="tf-contact-form" id="tfContactForm">
+          <h3>投稿 / 合作意向</h3>
+          <p>填写简要信息，官方团队会在 3 个工作日内回复。</p>
+          <div class="tf-field">
+            <label for="tfName">称呼</label>
+            <input id="tfName" name="name" type="text" placeholder="你的称呼或机构名称" required>
+          </div>
+          <div class="tf-field">
+            <label for="tfContact">联系方式</label>
+            <input id="tfContact" name="contact" type="text" placeholder="邮箱或电话" required>
+          </div>
+          <div class="tf-field">
+            <label for="tfMsg">内容方向 / 说明</label>
+            <textarea id="tfMsg" name="msg" rows="4" placeholder="例如：纪实短片 8 分钟，已完成拍摄，希望参与专题企划"></textarea>
+          </div>
+          <button class="tf-btn tf-btn-primary" type="submit" style="justify-content:center">提交给官方团队</button>
+          <div class="tf-form-tip" id="tfFormTip" aria-live="polite"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="tf-footer">
+  <div class="tf-wrap">
+    <div class="tf-footer-grid">
+      <div>
+        <a class="tf-logo" href="#tf-home">
+          <span class="tf-logo-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </span>
+          <span>铁粉空间<small>TIE FEN SPACE</small></span>
+        </a>
+        <p>铁粉空间官方网站，专注原创纪实与生活影像的企业级内容社区。平台坚持正版授权、内容合规与用户至上，为创作者提供长期成长土壤，为用户提供值得信赖的精品内容。</p>
+        <p>持续运营中 · 深耕垂直领域 · 以口碑建立影响力</p>
+      </div>
+      <div>
+        <h4>内容</h4>
+        <ul>
+          <li><a href="#tf-focus">视频焦点</a></li>
+          <li><a href="#tf-video">热门内容</a></li>
+          <li><a href="#tf-topic">专题企划</a></li>
+          <li><a href="#tf-wall">作品墙</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>关于</h4>
+        <ul>
+          <li><a href="#tf-about">品牌故事</a></li>
+          <li><a href="#tf-creator">创作者矩阵</a></li>
+          <li><a href="#tf-updates">企业动态</a></li>
+          <li><a href="#tf-faq">帮助中心</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>联系</h4>
+        <ul>
+          <li><a href="#tf-contact">品牌合作</a></li>
+          <li><a href="#tf-contact">内容投稿</a></li>
+          <li><a href="#tf-contact">意见反馈</a></li>
+          <li><a href="#tf-contact">媒体联络</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="tf-footer-bottom">
+      <span>© 2026 铁粉空间官方网站 版权所有 · 内容与商标归各自权利人所有</span>
+      <span>持续运营 · 官方发布 · 用户至上</span>
+    </div>
+  </div>
+</footer>
+
+<button class="tf-backtop" type="button" id="tfBackTop" aria-label="回到顶部">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<div class="tf-modal-backdrop" id="tfModal">
+  <div class="tf-modal" role="dialog" aria-modal="true" aria-labelledby="tfModalTitle">
+    <button class="tf-modal-close" type="button" id="tfModalClose" aria-label="关闭">×</button>
+    <h3 id="tfModalTitle">标题</h3>
+    <p class="tf-modal-sub" id="tfModalSub">说明</p>
+    <div id="tfModalBody"></div>
+  </div>
+</div>
+
+<div class="tf-toast" id="tfToast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+  "use strict";
+
+  var toastEl = document.getElementById('tfToast');
+  var toastTimer = null;
+  function showToast(msg){
+    toastEl.textContent = msg;
+    toastEl.classList.add('is-show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ toastEl.classList.remove('is-show'); }, 2200);
+  }
+
+  /* 移动端导航 */
+  var burger = document.getElementById('tfBurger');
+  var navLinks = document.getElementById('tfNavLinks');
+  if(burger && navLinks){
+    burger.addEventListener('click', function(){
+      var open = navLinks.classList.toggle('is-open');
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    navLinks.addEventListener('click', function(e){
+      if(e.target.tagName === 'A'){
+        navLinks.classList.remove('is-open');
+        burger.setAttribute('aria-expanded','false');
+      }
+    });
+  }
+
+  /* 搜索反馈 */
+  var searchInput = document.getElementById('tfSearchInput');
+  var searchBtn = document.getElementById('tfSearchBtn');
+  var searchStatus = document.getElementById('tfSearchStatus');
+  var searchIndex = [
+    {t:'我家阳台上的一年四季', k:'日常记录 慢生活 阳台 植物'},
+    {t:'第一次拍访谈，我踩过的 7 个坑', k:'经验分享 访谈 剪辑 教程'},
+    {t:'她在县城开了一家放映厅', k:'人物访谈 在地文化 放映'},
+    {t:'沿着一条河走完整个城区', k:'城市探索 旅行 散步'},
+    {t:'一条 60 秒短片背后的 21 版脚本', k:'创作幕后 脚本 行业观察'},
+    {t:'家庭厨房的 5 个低成本收纳方案', k:'实用技巧 收纳 家居'},
+    {t:'一只陶杯的第 400 次拉坯', k:'手作 教程 失败手记'},
+    {t:'林小满的阳台', k:'创作者 日常记录'},
+    {t:'深夜剪辑室', k:'创作者 剪辑 教程'},
+    {t:'记录者小组', k:'创作者 人物访谈'},
+    {t:'走读城市', k:'创作者 城市探索'},
+    {t:'陪伴计划', k:'专题 企划 纪实'},
+    {t:'我和我的铁粉', k:'专题 企划 报名'},
+    {t:'一间工作室', k:'专题 手作 工作室'},
+    {t:'重新认识这座城', k:'专题 城市 投票'}
+  ];
+  function doSearch(){
+    var q = (searchInput.value || '').trim();
+    if(!q){
+      searchStatus.innerHTML = '请输入关键词，例如「访谈」「城市」「剪辑」或创作者昵称。';
+      return;
+    }
+    var hits = searchIndex.filter(function(item){
+      return item.t.indexOf(q) > -1 || item.k.indexOf(q) > -1;
+    });
+    if(hits.length){
+      var names = hits.slice(0,4).map(function(h){ return h.t; }).join('、');
+      searchStatus.innerHTML = '找到 <b>' + hits.length + '</b> 条相关内容：' + names + '。滚动至内容区可查看相关卡片。';
+      var target = document.getElementById('tf-video');
+      if(target){ target.scrollIntoView({behavior:'smooth'}); }
+    }else{
+      searchStatus.innerHTML = '暂未找到与「<b>' + q + '</b>」直接匹配的内容，可尝试「访谈」「城市」「手作」「剪辑」等词。';
+    }
+  }
+  if(searchBtn && searchInput){
+    searchBtn.addEventListener('click', doSearch);
+    searchInput.addEventListener('keydown', function(e){
+      if(e.key === 'Enter'){ e.preventDefault(); doSearch(); }
+    });
+  }
+
+  /* 主题筛选 */
+  var filters = document.querySelectorAll('[data-tf-filter]');
+  var cards = document.querySelectorAll('#tfVideoGrid [data-tf-tags]');
+  filters.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      filters.forEach(function(b){ b.classList.remove('is-active'); });
+      btn.classList.add('is-active');
+      var key = btn.getAttribute('data-tf-filter');
+      var shown = 0;
+      cards.forEach(function(card){
+        var tags = card.getAttribute('data-tf-tags') || '';
+        var ok = (key === 'all') || tags.indexOf(key) > -1;
+        card.style.display = ok ? '' : 'none';
+        if(ok){ shown++; }
+      });
+      showToast(key === 'all' ? '已显示全部内容' : '已筛选出 ' + shown + ' 条相关内容');
+    });
+  });
+
+  /* 点赞 */
+  document.addEventListener('click', function(e){
+    var likeBtn = e.target.closest('[data-tf-like]');
+    if(likeBtn){
+      var counter = likeBtn.querySelector('[data-tf-like-count]');
+      if(!counter){ return; }
+      var raw = counter.textContent.replace(/,/g,'');
+      var num = parseInt(raw, 10) || 0;
+      var liked = likeBtn.classList.toggle('is-liked');
+      num = liked ? num + 1 : Math.max(0, num - 1);
+      counter.textContent = num.toLocaleString('en-US');
+      showToast(liked ? '已点赞，感谢你的回应' : '已取消点赞');
+      return;
+    }
+
+    var saveBtn = e.target.closest('[data-tf-save]');
+    if(saveBtn){
+      var saved = saveBtn.classList.toggle('is-saved');
+      showToast(saved ? '已加入收藏' : '已取消收藏');
+      return;
+    }
+
+    var playBtn = e.target.closest('[data-tf-play]');
+    if(playBtn){
+      var name = playBtn.getAttribute('data-tf-play') || '品牌宣传片';
+      openModal('官方内容播放说明', '本条内容由铁粉空间官方发布。', '<p style="font-size:13.5px;color:#3a3e52;line-height:1.9">《' + name + '》为品牌官方出品，时长约 12 分钟。完整内容与更多官方影像，可在「视频焦点」与「专题企划」板块了解。所有内容均为正版授权、高清呈现。</p><button class="tf-btn tf-btn-primary" type="button" style="margin-top:6px" data-tf-close>知道了</button>');
+      return;
+    }
+
+    if(e.target.closest('[data-tf-close]')){
+      closeModal();
+    }
+  });
+
+  /* 复制 */
+  document.addEventListener('click', function(e){
+    var copyBtn = e.target.closest('[data-tf-copy]');
+    if(!copyBtn){ return; }
+    var text = copyBtn.getAttribute('data-tf-copy') || '';
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(function(){
+        showToast('已复制：' + text);
+      }).catch(function(){
+        showToast('复制失败，请手动选择文本');
+      });
+    }else{
+      showToast('当前环境不支持自动复制');
+    }
+  });
+
+  /* 弹窗 */
+  var modal = document.getElementById('tfModal');
+  var modalTitle = document.getElementById('tfModalTitle');
+  var modalSub = document.getElementById('tfModalSub');
+  var modalBody = document.getElementById('tfModalBody');
+  var modalClose = document.getElementById('tfModalClose');
+
+  function openModal(title, sub, bodyHtml){
+    modalTitle.textContent = title;
+    modalSub.textContent = sub;
+    modalBody.innerHTML = bodyHtml;
+    modal.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(){
+    modal.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+  if(modalClose){ modalClose.addEventListener('click', closeModal); }
+  if(modal){ modal.addEventListener('click', function(e){ if(e.target === modal){ closeModal(); } }); }
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape'){ closeModal(); } });
+
+  /* 作者档案 */
+  document.addEventListener('click', function(e){
+    var authorBtn = e.target.closest('[data-tf-author]');
+    if(!authorBtn){ return; }
+    var name = authorBtn.getAttribute('data-tf-author');
+    var extra = {
+      '林小满的阳台':'以固定机位记录植物与日常，坚持「一年 24 条」的更新节奏，代表作《我家阳台上的一年四季》《薄荷的第四次复活》。',
+      '深夜剪辑室':'前纪录片剪辑师，专注创作幕后与剪辑判断，课程内容被多所高校影视社团引用，代表作《第一次拍访谈，我踩过的 7 个坑》。',
+      '记录者小组':'三人纪实团队，长期在小城与县城寻找值得被记录的人，代表作《她在县城开了一家放映厅》《厂区最后一班夜班》。',
+      '走读城市':'坚持步行拍摄的城市影像作者，主张「一条路线一集，不坐车不摆拍」，代表作《沿着一条河走完整个城区》。'
+    }[name] || '铁粉空间官方认证创作者，长期在本站发布原创内容。';
+    openModal(name + ' · 创作者档案', '官方认证创作者 · 内容持续更新', '<p style="font-size:13.5px;color:#3a3e52;line-height:1.95">' + extra + '</p><p style="font-size:13px;color:#6b7089;line-height:1.9">该创作者已通过平台实名与内容合规审核，作品均为原创或已获授权。你可以在「热门内容」中查看其最新发布，或通过底部联系方式发起合作咨询。</p><button class="tf-btn tf-btn-ghost" type="button" data-tf-copy="' + name + '">复制创作者昵称</button>');
+  });
+
+  /* 申请会员体验 / 反馈 */
+  var joinBtn = document.getElementById('tfJoinBtn');
+  if(joinBtn){
+    joinBtn.addEventListener('click', function(){
+      openModal('会员体验说明', '所有规则与条件以官方网站公示为准', '<p style="font-size:13.5px;color:#3a3e52;line-height:1.95">铁粉空间会员体验由平台统一组织，具体条件、阶段与可使用范围在会员中心与官方公告中公开说明。请在官方渠道内查看最新信息，避免相信任何非官方来源的获取方式。</p><ul style="font-size:13px;color:#6b7089;line-height:2;padding-left:18px;margin:10px 0"><li>体验内容以官方公示页面为准</li><li>不向个人账户提交费用或敏感信息</li><li>如有疑问，可通过底部分享的官方联系方式咨询</li></ul><button class="tf-btn tf-btn-primary" type="button" data-tf-close style="margin-top:4px">我了解了</button>');
+    });
+  }
+  var reportBtn = document.getElementById('tfReportBtn');
+  if(reportBtn){
+    reportBtn.addEventListener('click', function(){
+      openModal('意见反馈', '你的意见会被官方团队认真阅读', '<div style="display:grid;gap:12px"><div style="font-size:13.5px;color:#3a3e52;line-height:1.9">请简要描述你遇到的问题或建议，并留下联系方式，我们会通过官方渠道回复。</div><textarea style="width:100%;min-height:90px;border:1px solid #e6e8f2;border-radius:10px;padding:10px;font-family:inherit;font-size:13.5px;outline:none;background:#f6f7fb" placeholder="例如：希望增加青少年使用提示的展示位置"></textarea><button class="tf-btn tf-btn-primary" type="button" data-tf-close style="justify-content:center">提交反馈</button></div>');
+    });
+  }
+
+  /* 联系表单 */
+  var form = document.getElementById('tfContactForm');
+  var tip = document.getElementById('tfFormTip');
+  if(form){
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var name = document.getElementById('tfName').value.trim();
+      var contact = document.getElementById('tfContact').value.trim();
+      if(!name || !contact){
+        tip.style.color = '#d93f34';
+        tip.textContent = '请填写称呼与联系方式后再提交。';
+        return;
+      }
+      tip.style.color = '#2fc4a8';
+      tip.textContent = '已收到，官方团队会在 3 个工作日内通过你留下的方式回复。';
+      showToast('投稿信息已提交');
+      form.reset();
+    });
+  }
+
+  /* 回到顶部 */
+  var backTop = document.getElementById('tfBackTop');
+  window.addEventListener('scroll', function(){
+    if(window.scrollY > 480){
+      backTop.classList.add('is-show');
+    }else{
+      backTop.classList.remove('is-show');
+    }
+  }, {passive:true});
+  if(backTop){
+    backTop.addEventListener('click', function(){
+      window.scrollTo({top:0, behavior:'smooth'});
+    });
+  }
+
+  /* 数字滚动 */
+  var statNums = document.querySelectorAll('.tf-stat b');
+  var statDone = false;
+  function animateStats(){
+    if(statDone){ return; }
+    var first = document.querySelector('.tf-stat');
+    if(!first){ return; }
+    var rect = first.getBoundingClientRect();
+    if(rect.top > window.innerHeight - 60){ return; }
+    statDone = true;
+    statNums.forEach(function(el){
+      var em = el.querySelector('em');
+      var emText = em ? em.outerHTML : '';
+      var text = el.textContent.replace(em ? em.textContent : '', '').replace(/,/g,'');
+      var target = parseFloat(text);
+      if(isNaN(target)){ return; }
+      var isFloat = text.indexOf('.') > -1;
+      var decimals = isFloat ? (text.split('.')[1] || '').length : 0;
+      var start = performance.now();
+      var dur = 1100;
+      function step(now){
+        var p = Math.min(1, (now - start) / dur);
+        var eased = 1 - Math.pow(1 - p, 3);
+        var val = target * eased;
+        var out = isFloat ? val.toFixed(decimals) : Math.round(val).toLocaleString('en-US');
+        if(target >= 1000 && !isFloat){ out = Math.round(val).toLocaleString('en-US'); }
+        el.innerHTML = out + emText;
+        if(p < 1){ requestAnimationFrame(step); }
+      }
+      requestAnimationFrame(step);
+    });
+  }
+  window.addEventListener('scroll', animateStats, {passive:true});
+  window.addEventListener('load', animateStats);
+
+})();
+</script>
+</body>
+              </html>
